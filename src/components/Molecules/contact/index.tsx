@@ -7,33 +7,33 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Text from "../../atomic/textfield";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import FormControl from "@mui/material/FormControl";
+import dayjs, { Dayjs } from "dayjs";
 
 const schema = yup.object().shape({
   Fname: yup.string().required("First Name is required"),
   Lname: yup.string().required("Last Name is required"),
   dob: yup.string(),
-  gender: yup.string().required("Gender is required"),
   email: yup.string().required("Email is required"),
   phone: yup.string().required("Phone number is required"),
   city: yup.string().required("City is required"),
   state: yup.string().required("State is required"),
   zipcode: yup.string().required("Zip Code is required"),
+  address1: yup.string(),
+  address2: yup.string(),
 });
 
-export default function Contact({ obj, setObj, setAct }) {
+export default function Contact({ obj, setObj, setAct, saveDraft }) {
   const theme = useTheme();
   const textProps = {
     id: "outlined-basic",
@@ -53,17 +53,24 @@ export default function Contact({ obj, setObj, setAct }) {
   });
 
   let submitHandler = async (contact: any) => {
+    if (dob == null) return setDobErr(true);
+    contact.gender = gender;
+    contact.dob = dob;
+    obj.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
     let conArr = { ...obj, contact };
     setObj(conArr);
     setAct(2);
-    console.log(contact);
   };
+  const [gender, setGender] = useState("");
+  const [dob, setDob] = useState<Dayjs | null>(dayjs());
+  const [dobErr, setDobErr] = useState(false);
 
   useEffect(() => {
     setValue("Fname", obj?.contact?.Fname || "");
     setValue("Lname", obj?.contact?.Lname || "");
+    setDob(obj?.contact?.dob || null);
     setValue("dob", obj?.contact?.dob || "");
-    setValue("gender", obj?.contact?.gender || "");
+    setGender(obj?.contact?.gender || "2");
     setValue("email", obj?.contact?.email || "");
     setValue("phone", obj?.contact?.phone || "");
     setValue("address1", obj?.contact?.address1 || "");
@@ -72,6 +79,17 @@ export default function Contact({ obj, setObj, setAct }) {
     setValue("state", obj?.contact?.state || "");
     setValue("zipcode", obj?.contact?.zipcode || "");
   }, [obj]);
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setGender(event.target.value as string);
+  };
+  const handleDob = (value) => {
+    if (value) {
+      setDobErr(false);
+    }
+    setDob(value as string);
+  };
+
   return (
     <>
       <Typography
@@ -112,12 +130,15 @@ export default function Contact({ obj, setObj, setAct }) {
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
+                onChange={(newValue) => {
+                  handleDob(newValue);
+                }}
+                value={dob}
                 sx={{ width: "100%" }}
                 slotProps={{
                   textField: {
-                    helperText: errors?.dob ? errors.dob.message : null,
-                    error: errors?.dob ? true : false,
-                    ...register("dob"),
+                    helperText: dobErr ? "Date of birth is required" : null,
+                    error: dobErr ? true : false,
                   },
                 }}
               />
@@ -125,27 +146,12 @@ export default function Contact({ obj, setObj, setAct }) {
           </Grid>
 
           <Grid item xs={6} sx={{ p: 1 }}>
-            <FormControl
-              sx={{ width: "100%" }}
-              error={errors?.gender ? true : false}
-            >
-              <label>Gender</label>
-              <Select
-                placeholder="Select Gender"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Age"
-                fullWidth={true}
-                {...register("gender")}
-              >
-                <MenuItem value="male">Male</MenuItem>
-                <MenuItem value="female">Female</MenuItem>
-                <MenuItem value="other">Other</MenuItem>
-              </Select>
-              <FormHelperText>
-                {errors?.gender ? errors.gender.message : null}
-              </FormHelperText>
-            </FormControl>
+            <label>Gender</label>
+            <Select value={gender} onChange={handleChange} fullWidth={true}>
+              <MenuItem value={1}>Male</MenuItem>
+              <MenuItem value={2}>Female</MenuItem>
+              <MenuItem value={3}>Other</MenuItem>
+            </Select>
           </Grid>
 
           <Grid item xs={6} sx={{ p: 1 }}>
@@ -250,6 +256,7 @@ export default function Contact({ obj, setObj, setAct }) {
               textTransform: "none",
               borderRadius: "8px",
             }}
+            onClick={saveDraft}
           >
             Save draft
           </Button>

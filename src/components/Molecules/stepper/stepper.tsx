@@ -132,14 +132,13 @@ export default function CustomizedSteppers({ act, setAct, obj }) {
   // const [act, setAct] = React.useState(0);
 
   const setStepper = (prop) => {
-    console.log(act);
-
-    if (prop > 2 && act == 1) {
+    if (prop > 2 && Object.keys(obj.contact).length == 0) {
+      setAct(1);
+      document.getElementById("contactValidate").click();
+    } else if (prop > 2 && act == 1) {
       document.getElementById("contactValidate").click();
     } else {
-      if (prop != 4) {
-        setAct(prop - 1);
-      }
+      setAct(prop - 1);
     }
   };
   function ColorlibStepIcon(props: StepIconProps) {

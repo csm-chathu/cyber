@@ -1,9 +1,17 @@
 "use client";
 import { Button, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useState } from "react";
+import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
 
-export default function Estimation({ act, setAct }) {
+interface State extends SnackbarOrigin {
+  open: boolean;
+}
+
+export default function Estimation({ act, setAct, obj }) {
   const theme = useTheme();
+  const [print, setPrint] = useState(false);
+  const [email, setEmail] = useState(false);
 
   const lable = {
     color: theme.palette.txt.muted,
@@ -18,6 +26,52 @@ export default function Estimation({ act, setAct }) {
     color: "#000",
   };
 
+  let sendEmail = async () => {
+    console.log(obj);
+
+    try {
+      // setEmail(true);
+      const emailResponse = await fetch("/api/send-email", {
+        method: "POST",
+        body: JSON.stringify({ ...obj }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (emailResponse.ok) {
+        setEmail(false);
+        alert("Email sent successfully");
+      } else {
+        setEmail(false);
+        alert("Email not sent");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  let printPdf = async () => {
+    try {
+      setPrint(true);
+      const pdfResponse = await fetch("/api/generate-pdf", {
+        method: "POST",
+        body: JSON.stringify({ ...obj }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const pdfData = await pdfResponse.arrayBuffer();
+      if (pdfData) {
+        const blob = new Blob([pdfData], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
+        setPrint(false);
+        window.open(url);
+      } else {
+        setPrint(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <Typography
@@ -43,7 +97,7 @@ export default function Estimation({ act, setAct }) {
           Insurance
         </Grid>
         <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
-          Self Pay
+          {obj?.insurance?.insured || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
@@ -51,7 +105,7 @@ export default function Estimation({ act, setAct }) {
           Reference Number
         </Grid>
         <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
-          PFE1028640003RM7
+          {obj?.ref || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
@@ -82,6 +136,7 @@ export default function Estimation({ act, setAct }) {
         }}
       >
         <Button
+          disabled={print}
           variant="outlined"
           color="success"
           sx={{
@@ -90,10 +145,12 @@ export default function Estimation({ act, setAct }) {
             textTransform: "none",
             borderRadius: "8px",
           }}
+          onClick={printPdf}
         >
           Print
         </Button>
         <Button
+          disabled={email}
           variant="contained"
           color="success"
           sx={{
@@ -102,9 +159,17 @@ export default function Estimation({ act, setAct }) {
             textTransform: "none",
             borderRadius: "8px",
           }}
+          onClick={sendEmail}
         >
           Send an Email
         </Button>
+        {/* <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={true}
+        onClose={handleClose}
+        message="I love snacks"
+        key={vertical + horizontal}
+      /> */}
       </Grid>
     </>
   );

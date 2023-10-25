@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../createEmotionCache";
 import { Grid, PaletteMode } from "@mui/material";
-import { themeAtom, logged } from "../store";
+import { themeAtom, logged, draft } from "../store";
 import { useAtom } from "jotai";
 import darkTheme from "../themes/dark.theme";
 import lightTheme from "../themes/light.theme";
@@ -26,6 +26,7 @@ export default function MyApp(props: MyAppProps) {
   const [act, setAct] = React.useState(0);
   const [obj, setObj] = React.useState(OBJ_ARR);
   const [theme, setTheme] = useAtom(themeAtom);
+  const [drft, setDrft] = useAtom(draft);
   const [loggedStatus, setLogged] = useAtom(logged);
   const themePallete = useTheme();
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -33,7 +34,9 @@ export default function MyApp(props: MyAppProps) {
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
-
+  const saveDraft = () => {
+    setDrft(obj);
+  };
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -50,6 +53,7 @@ export default function MyApp(props: MyAppProps) {
             setAct={setAct}
             obj={obj}
             setObj={setObj}
+            saveDraft={saveDraft}
           />
         </Grid>
       </ThemeProvider>
