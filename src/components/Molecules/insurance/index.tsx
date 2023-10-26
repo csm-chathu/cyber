@@ -9,14 +9,19 @@ import {
   TextField,
   Typography,
   TextFieldProps,
+  Alert,
+  Collapse,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import * as yup from "yup";
 import FormControl from "@mui/material/FormControl";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import { useState } from "react";
 
 export default function Insurance({ setAct }: any) {
   const theme = useTheme();
+  const [warn, setWarn] = useState(false);
+
   const textProps: TextFieldProps = {
     id: "outlined-basic",
     variant: "outlined",
@@ -25,7 +30,12 @@ export default function Insurance({ setAct }: any) {
       shrink: true,
     },
   };
-
+  let warnAlert = async () => {
+    setWarn(true);
+    setTimeout(function () {
+      setWarn(false);
+    }, 3000);
+  };
   return (
     <>
       <Typography
@@ -36,9 +46,17 @@ export default function Insurance({ setAct }: any) {
           mb: 3,
         }}
       >
-        Insurance Details
+        Payment Details
       </Typography>
       <Grid container direction="row">
+        <Collapse in={warn} sx={{ width: "100%" }}>
+          <Alert
+            severity="warning"
+            sx={{ border: "1px solid #FFD336", backgroundColor: "#FFF8D5" }}
+          >
+            This feature will be available soon.
+          </Alert>
+        </Collapse>
         <Grid item xs={12} sx={{ p: 1 }}>
           <FormControl>
             <label>Are you Insured?</label>
@@ -58,7 +76,7 @@ export default function Insurance({ setAct }: any) {
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "402px",
+                  width: "403px",
                   backgroundColor: "#D4FFE4",
                   mt: 1,
                 }}
@@ -67,12 +85,13 @@ export default function Insurance({ setAct }: any) {
                 value="2"
                 control={<Radio />}
                 label="Insurance"
+                onClick={warnAlert}
                 sx={{
                   padding: "5px 16px 5px 18px",
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "402px",
+                  width: "403px",
                   mt: 1,
                 }}
               />
@@ -108,7 +127,7 @@ export default function Insurance({ setAct }: any) {
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "402px",
+                  width: "403px",
                   backgroundColor: "#D4FFE4",
                 }}
               />
@@ -123,7 +142,7 @@ export default function Insurance({ setAct }: any) {
                   borderRadius: "8px",
                   ml: 0,
                   mt: 1,
-                  width: "402px",
+                  width: "403px",
                 }}
               />
             </RadioGroup>
