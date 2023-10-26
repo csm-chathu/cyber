@@ -7,7 +7,7 @@ export async function generatePdf(params: any) {
   const page = await browser.newPage();
   const imagePath = params?.image || "";
   // var imageAsBase64 = fs.readFileSync(imagePath, "base64");
-  // console.log(params.ref);
+  console.log(params);
 
   const customContent = `
   <html>
@@ -46,7 +46,7 @@ export async function generatePdf(params: any) {
   <div style="width: 33.3%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
-      params?.contact?.Fname || "" + " " + params?.contact?.Lname || ""
+      params?.contact?.Fname + " " + params?.contact?.Lname
     }</p>
   </div>
   <div style="width: 33.3%;">
@@ -72,7 +72,7 @@ export async function generatePdf(params: any) {
   </div>
   <div style="width: 50%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
-      params?.contact?.Fname || "" + " " + params?.contact?.Lname || ""
+      params?.contact?.Fname + " " + params?.contact?.Lname
     }</p>
   </div>
   </div>
@@ -106,7 +106,11 @@ export async function generatePdf(params: any) {
   </div>
   <div style="width: 50%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
-      params?.contact?.address1 || "" + " " + params?.contact?.address2 || ""
+      params?.contact?.address1 +
+      "," +
+      params?.contact?.address2 +
+      "," +
+      params?.contact?.city
     }</p>
   </div>
 </div>
@@ -135,7 +139,7 @@ export async function generatePdf(params: any) {
   }</p>
 </div>
 </div>
-<div style="width: 100%; margin-top: 20px;">
+<div style="width: 100%; margin-top: 20px; ">
   <p style="font-size: 14px;font-weight: 400;color: #82889B"><span style="color: #020202;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
 </div>
 </div>
