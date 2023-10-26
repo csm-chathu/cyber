@@ -256,9 +256,9 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
               textTransform: "none",
               borderRadius: "8px",
             }}
-            onClick={saveDraft}
+            onClick={() => setAct(0)}
           >
-            Save draft
+            Back
           </Button>
           <Button
             type="submit"

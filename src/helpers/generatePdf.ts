@@ -123,7 +123,9 @@ export async function generatePdf(params: type) {
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;">Service</p>
 </div>
 <div style="width: 50%;">
-  <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 5px 10px;">Family psychotherapy including patient</p>
+  <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 5px 10px;">${
+    params?.service?.value["Service Description"]
+  }</p>
 </div>
 </div>
 
@@ -132,7 +134,9 @@ export async function generatePdf(params: type) {
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;margin-top: 25px;">Total Estimated Patient Responsibility</p>
 </div>
 <div style="width: 50%;">
-  <p style="color:#020202;font-size:25px;font-weight: 400;text-align: right;padding: 5px 10px">$ 17,569.88</p>
+  <p style="color:#020202;font-size:25px;font-weight: 400;text-align: right;padding: 5px 10px">${
+    params?.service?.value?.Price
+  }</p>
 </div>
 </div>
 <div style="width: 100%; margin-top: 20px;">

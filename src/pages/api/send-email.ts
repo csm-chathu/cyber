@@ -2,19 +2,22 @@
 import nodemailer from "nodemailer";
 import { generatePdf } from "../../helpers/generatePdf";
 
+const email = process.env.EMAIL;
+const password = process.env.EMAIL_PASSWORD;
+
 export default async (req, res) => {
   const pdfBuffer = await generatePdf(req.body);
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "dev.chathuranga@gmail.com",
-      pass: "xrsi gkvp qcvj czpv",
+      user: email,
+      pass: password,
     },
   });
   console.log(req.body.contact.email);
 
   const mailOptions = {
-    from: "dev.chathuranga@gmail.com",
+    from: email,
     to: req.body.contact.email,
     subject: "WCMC",
     text: "Please find the PDF attached.",

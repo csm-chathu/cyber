@@ -137,6 +137,8 @@ export default function CustomizedSteppers({ act, setAct, obj }) {
       document.getElementById("contactValidate").click();
     } else if (prop > 2 && act == 1) {
       document.getElementById("contactValidate").click();
+    } else if (prop > 3 && act == 2) {
+      document.getElementById("serviceValidate").click();
     } else {
       setAct(prop - 1);
     }
@@ -174,6 +176,12 @@ export default function CustomizedSteppers({ act, setAct, obj }) {
         type="submit"
         form="hook-form"
         id="contactValidate"
+        style={{ visibility: "hidden" }}
+      ></button>
+      <button
+        type="submit"
+        form="hook-form-service"
+        id="serviceValidate"
         style={{ visibility: "hidden" }}
       ></button>
       <Stack sx={{ width: "1100px", mt: 5, mb: 5 }} spacing={4}>

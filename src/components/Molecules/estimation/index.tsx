@@ -89,7 +89,7 @@ export default function Estimation({ act, setAct, obj }) {
           Service
         </Grid>
         <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
-          Family psychotherapy including patient
+          {obj?.service?.value["Service Description"] || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
@@ -113,7 +113,7 @@ export default function Estimation({ act, setAct, obj }) {
           Estimate Total
         </Grid>
         <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
-          $ 28,590.00
+          {obj?.service?.value?.Price || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">

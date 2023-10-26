@@ -1,13 +1,107 @@
 "use client";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  Autocomplete,
+  Box,
+  Button,
+  FormControl,
+  FormHelperText,
+  Grid,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Text from "../../atomic/textfield";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
-export default function Services() {
+const textProps = {
+  id: "outlined-basic",
+  variant: "outlined",
+  fullWidth: true,
+  InputLabelProps: {
+    shrink: true,
+  },
+};
+
+export default function Services({ obj, setObj, setAct, saveDraft }) {
   const theme = useTheme();
+  const [service, setService] = useState([]);
+  const [serviceCategory, setServiceCategory] = useState([]);
+  const [serviceError, setServiceError] = useState(false);
+  const [defaultService, setDefaultService] = useState([]);
 
+  let sendEmail = async () => {
+    const services = await fetch("/api/serice-price", {
+      method: "GET",
+    }).then((response) => response.json());
+
+    setService(services.option);
+    setDefaultService(services.option);
+    setServiceCategory(services.category);
+  };
+  useEffect(() => {
+    sendEmail();
+  }, []);
+
+  const [serviceSelected, setServiceNameSelected] = useState<string[]>([]);
+  const handleChangeMultiple = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const { options } = event.target;
+    const value: string[] = [];
+    for (let i = 0, l = options.length; i < l; i += 1) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+    setServiceNameSelected(value);
+  };
+
+  const searchCode = (val) => {
+    if (val == "") {
+      return setService(defaultService);
+    }
+    filterByValue(defaultService, val);
+  };
+
+  function filterByValue(arrayOfObject, term) {
+    var ans = arrayOfObject.filter(function (v, i) {
+      // console.log(v);
+      if (
+        v.label.toLowerCase().indexOf(term) >= 0 ||
+        v.value["Service Category"].toLowerCase().indexOf(term) >= 0
+      ) {
+        return true;
+      } else false;
+    });
+    setService(ans);
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  let submitHandler = async (service: any) => {
+    setServiceError(false);
+    if (serviceSelected.length == 0) {
+      return setServiceError(true);
+    }
+    let selected = defaultService.filter((item) => item.id == serviceSelected);
+    if (selected.length > 0) {
+      let conArr = { ...obj, service: selected[0] };
+      setObj(conArr);
+      setAct(3);
+    }
+  };
+  useEffect(() => {
+    setServiceNameSelected(obj?.service?.id?.toString() || "");
+  }, [defaultService]);
   return (
     <>
+      {/* {serviceSelected} */}
       <Typography
         textAlign="left"
         sx={{
@@ -18,48 +112,97 @@ export default function Services() {
       >
         Select Medical Service
       </Typography>
-      <Grid container direction="row">
-        <Text lbl="Select Healthcare Category" grd={6} />
-        <Text lbl="Search by Service Description or Code" grd={6} />
-        <Text lbl="Service" grd={12} />
-        <Text lbl="Couldn't find what you're looking for?" grd={12} />
-      </Grid>
-      <Grid
-        display="flex"
-        container
-        direction="row"
-        alignItems="right"
-        justifyContent="right"
-        gap={1}
-        sx={{
-          mt: 10,
-        }}
-      >
-        <Button
-          variant="outlined"
-          color="success"
+      <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
+        <Grid container direction="row">
+          <Grid item xs={6} sx={{ p: 1 }}>
+            <label>Select Healthcare Category</label>
+
+            <Autocomplete
+              disablePortal
+              {...register("cat")}
+              id="combo-box-demo"
+              options={serviceCategory}
+              sx={{ width: "100%" }}
+              renderInput={(params) => (
+                <TextField {...params} label="label" key="id" />
+              )}
+              onChange={(event, value) => searchCode(value.label)}
+            />
+          </Grid>
+
+          <Grid item xs={6} sx={{ p: 1 }}>
+            <label>Search by Service Description or Code</label>
+            <TextField
+              {...textProps}
+              onChange={(e) => searchCode(e.target.value)}
+              placeholder="Description or CPT/HCPCS/DRG Code"
+            />
+          </Grid>
+          <Grid item xs={12} sx={{ p: 1 }}>
+            <label>Services</label>
+            <FormControl error={serviceError}>
+              <Select
+                sx={{ width: "100%" }}
+                multiple
+                native
+                value={serviceSelected}
+                onChange={handleChangeMultiple}
+                label="Native"
+                inputProps={{
+                  id: "select-multiple-native",
+                }}
+              >
+                {service.map((item, i) => (
+                  <option key={i} value={item.id}>
+                    {item.label}
+                  </option>
+                ))}
+              </Select>
+              <FormHelperText>
+                {serviceError ? "Service type required" : null}
+              </FormHelperText>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid
+          display="flex"
+          container
+          direction="row"
+          alignItems="right"
+          justifyContent="right"
+          gap={1}
           sx={{
-            padding: "5px 30px",
-            fontSize: "16px",
-            textTransform: "none",
-            borderRadius: "8px",
+            mt: 10,
           }}
         >
-          Save draft
-        </Button>
-        <Button
-          variant="contained"
-          color="success"
-          sx={{
-            padding: "5px 30px",
-            fontSize: "16px",
-            textTransform: "none",
-            borderRadius: "8px",
-          }}
-        >
-          Continue
-        </Button>
-      </Grid>
+          <Button
+            variant="outlined"
+            color="success"
+            sx={{
+              padding: "5px 30px",
+              fontSize: "16px",
+              textTransform: "none",
+              borderRadius: "8px",
+            }}
+            onClick={() => setAct(1)}
+          >
+            Back
+          </Button>
+          <Button
+            type="submit"
+            variant="contained"
+            color="success"
+            sx={{
+              padding: "5px 30px",
+              fontSize: "16px",
+              textTransform: "none",
+              borderRadius: "8px",
+            }}
+          >
+            Continue
+          </Button>
+        </Grid>
+      </form>
     </>
   );
 }
