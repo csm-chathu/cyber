@@ -1,15 +1,13 @@
 "use client";
 import {
-  Box,
   Button,
-  FormHelperText,
   Grid,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
   TextField,
   Typography,
+  TextFieldProps,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
@@ -33,9 +31,9 @@ const schema = yup.object().shape({
   address2: yup.string(),
 });
 
-export default function Contact({ obj, setObj, setAct, saveDraft }) {
+export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
   const theme = useTheme();
-  const textProps = {
+  const textProps: TextFieldProps = {
     id: "outlined-basic",
     variant: "outlined",
     fullWidth: true,
@@ -83,11 +81,11 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
   const handleChange = (event: SelectChangeEvent) => {
     setGender(event.target.value as string);
   };
-  const handleDob = (value) => {
+  const handleDob = (value: any) => {
     if (value) {
       setDobErr(false);
     }
-    setDob(value as string);
+    setDob(value);
   };
 
   return (
@@ -105,7 +103,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
       {/* {JSON.stringify(obj)} */}
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form">
         <Grid container direction="row">
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>First Name</label>
             <TextField
               {...register("Fname")}
@@ -115,7 +113,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
               placeholder="Please enter your firstname"
             />
           </Grid>
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Last Name</label>
             <TextField
               {...register("Lname")}
@@ -125,7 +123,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
               placeholder="Please enter your lastname"
             />
           </Grid>
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Date of Birth</label>
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -145,7 +143,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             </LocalizationProvider>
           </Grid>
 
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Gender</label>
             <Select value={gender} onChange={handleChange} fullWidth={true}>
               <MenuItem value={1}>Male</MenuItem>
@@ -154,7 +152,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             </Select>
           </Grid>
 
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Email</label>
             <TextField
               {...register("email")}
@@ -165,7 +163,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             />
           </Grid>
 
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Phone Number</label>
             <TextField
               {...register("phone")}
@@ -203,7 +201,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             />
           </Grid>
 
-          <Grid item xs={4} sx={{ p: 1 }}>
+          <Grid item xs={12} md={4} sx={{ p: 1 }}>
             <label>City</label>
             <TextField
               {...register("city")}
@@ -214,7 +212,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             />
           </Grid>
 
-          <Grid item xs={4} sx={{ p: 1 }}>
+          <Grid item xs={12} md={4} sx={{ p: 1 }}>
             <label>State</label>
             <TextField
               {...register("state")}
@@ -225,7 +223,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }) {
             />
           </Grid>
 
-          <Grid item xs={4} sx={{ p: 1 }}>
+          <Grid item xs={12} md={4} sx={{ p: 1 }}>
             <label>Zip Code</label>
             <TextField
               {...register("zipcode")}

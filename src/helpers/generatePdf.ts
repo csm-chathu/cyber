@@ -2,12 +2,12 @@ import puppeteer from "puppeteer";
 import moment from "moment";
 var fs = require("fs");
 
-export async function generatePdf(params: type) {
+export async function generatePdf(params: any) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const imagePath = params?.image || "";
   // var imageAsBase64 = fs.readFileSync(imagePath, "base64");
-  console.log(params.ref);
+  // console.log(params.ref);
 
   const customContent = `
   <html>
@@ -43,27 +43,23 @@ export async function generatePdf(params: type) {
   <p style="color: #22C55E;font-size: 35px;font-weight: 500;">Price Estimation</p>
 </div>
 <div style="width: 100%;display: flex;">
-  <div style="width: 25%;">
+  <div style="width: 33.3%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.contact?.Fname || "" + " " + params?.contact?.Lname || ""
     }</p>
   </div>
-  <div style="width: 25%;">
+  <div style="width: 33.3%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Reference Id</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.ref || "N/A"
     }</p>
   </div>
-  <div style="width: 25%;">
+  <div style="width: 33.3%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${moment(
       new Date()
     ).format("MMMM Do YYYY")}</p>
-  </div>
-  <div style="width: 25%;">
-    <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Valid Unit</label>
-    <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">Ronald Richards</p>
   </div>
 </div>
 

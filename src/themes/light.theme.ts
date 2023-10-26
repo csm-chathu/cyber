@@ -158,6 +158,7 @@ export default createTheme({
     MuiFormControl: {
       defaultProps: {
         size: "medium",
+        sx: { borderRadius: "10px" },
       },
     },
   },

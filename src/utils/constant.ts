@@ -1,5 +1,6 @@
 export const OBJ_ARR = {
   contact: {},
+  agreed: false,
   service: {},
   estimation: {},
   insurance: {

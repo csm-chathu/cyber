@@ -3,24 +3,21 @@ import {
   Box,
   Button,
   FormControlLabel,
-  FormHelperText,
   Grid,
-  InputLabel,
-  MenuItem,
   Radio,
   RadioGroup,
-  Select,
   TextField,
   Typography,
+  TextFieldProps,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import * as yup from "yup";
 import FormControl from "@mui/material/FormControl";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
-export default function Insurance({ obj, setObj, setAct }) {
+export default function Insurance({ setAct }: any) {
   const theme = useTheme();
-  const textProps = {
+  const textProps: TextFieldProps = {
     id: "outlined-basic",
     variant: "outlined",
     fullWidth: true,
@@ -42,7 +39,7 @@ export default function Insurance({ obj, setObj, setAct }) {
         Insurance Details
       </Typography>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1 }}>
+        <Grid item xs={12} sx={{ p: 1 }}>
           <FormControl>
             <label>Are you Insured?</label>
             <RadioGroup
@@ -61,37 +58,45 @@ export default function Insurance({ obj, setObj, setAct }) {
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "136px",
+                  width: "402px",
                   backgroundColor: "#D4FFE4",
+                  mt: 1,
                 }}
               />
               <FormControlLabel
                 value="2"
                 control={<Radio />}
-                label="Yes"
-                disabled
+                label="Insurance"
                 sx={{
                   padding: "5px 16px 5px 18px",
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "136px",
+                  width: "402px",
+                  mt: 1,
                 }}
               />
             </RadioGroup>
           </FormControl>
         </Grid>
-        <Grid item xs={6} sx={{ p: 1 }}>
+        <Grid item xs={12} sx={{ p: 1 }}>
           <FormControl>
-            <label>
-              <ErrorOutlineIcon /> Determine
-            </label>
+            <Grid
+              display="flex"
+              container
+              direction="row"
+              alignItems="left"
+              justifyContent="left"
+            >
+              <ErrorOutlineIcon sx={{ mr: 1 }} />
+              <label>Determine</label>
+            </Grid>
             <RadioGroup
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
               value={1}
-              sx={{ pt: 2 }}
+              sx={{ pt: 2, mt: 1 }}
             >
               <FormControlLabel
                 value="1"
@@ -103,7 +108,7 @@ export default function Insurance({ obj, setObj, setAct }) {
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "190px",
+                  width: "402px",
                   backgroundColor: "#D4FFE4",
                 }}
               />
@@ -117,7 +122,8 @@ export default function Insurance({ obj, setObj, setAct }) {
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "190px",
+                  mt: 1,
+                  width: "402px",
                 }}
               />
             </RadioGroup>
@@ -130,49 +136,38 @@ export default function Insurance({ obj, setObj, setAct }) {
             disabled
             placeholder="Select Insurance Company"
           />
-          <Typography
-            sx={{
-              color: theme.palette.txt.muted,
-              fontSize: "12px",
-              pt: 1,
-            }}
+          <Grid
+            display="flex"
+            container
+            direction="row"
+            alignItems="left"
+            justifyContent="left"
+            sx={{ pt: 1 }}
           >
             <ErrorOutlineIcon />
-            If your insurance company isn't listed, call the phone number in the
-            contact information.
-          </Typography>
+            <Typography
+              sx={{
+                color: theme.palette.txt.muted,
+                fontSize: "12px",
+                ml: 1,
+              }}
+            >
+              If your insurance company isn't listed, call the phone number in
+              the contact information.
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item xs={6} sx={{ p: 1 }}>
-          <label>Co-pay</label>
+        <Grid item xs={12} md={6} sx={{ p: 1 }}>
+          <label>Relationship to Insured</label>
           <TextField
             {...textProps}
             disabled
-            placeholder="Please enter your Co-pay"
+            placeholder="Select Insurance Relationship"
           />
         </Grid>
-        <Grid item xs={6} sx={{ p: 1 }}>
-          <label>Co-insurance</label>
-          <TextField
-            {...textProps}
-            disabled
-            placeholder="Please enter your Co-Insurance"
-          />
-        </Grid>
-        <Grid item xs={6} sx={{ p: 1 }}>
-          <label>Deductible Remaining</label>
-          <TextField
-            {...textProps}
-            disabled
-            placeholder="Please enter your Deductible Remaining"
-          />
-        </Grid>
-        <Grid item xs={6} sx={{ p: 1 }}>
-          <label>Out Of Pocket Remaining</label>
-          <TextField
-            {...textProps}
-            disabled
-            placeholder="Please enter your Out Of Pocket Remaining"
-          />
+        <Grid item xs={12} md={6} sx={{ p: 1 }}>
+          <label>Group Number</label>
+          <TextField {...textProps} disabled placeholder="Enter Group number" />
         </Grid>
       </Grid>
       <Grid
@@ -195,8 +190,9 @@ export default function Insurance({ obj, setObj, setAct }) {
             textTransform: "none",
             borderRadius: "8px",
           }}
+          onClick={() => setAct(2)}
         >
-          Save draft
+          Back
         </Button>
         <Button
           type="submit"

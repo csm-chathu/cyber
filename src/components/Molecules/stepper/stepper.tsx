@@ -126,21 +126,23 @@ const ColorlibStepIconRoot = styled("div")<{
   }),
 }));
 
-const steps = ["Home", "Contact", "Services", "Insurance", "Estimation"];
+const steps = ["Home", "Contact", "Services", "Payment", "Estimation"];
 
 export default function CustomizedSteppers({ act, setAct, obj }) {
-  // const [act, setAct] = React.useState(0);
-
   const setStepper = (prop) => {
-    if (prop > 2 && Object.keys(obj.contact).length == 0) {
-      setAct(1);
-      document.getElementById("contactValidate").click();
-    } else if (prop > 2 && act == 1) {
-      document.getElementById("contactValidate").click();
-    } else if (prop > 3 && act == 2) {
-      document.getElementById("serviceValidate").click();
-    } else {
-      setAct(prop - 1);
+    if (obj.agreed) {
+      if (prop > 2 && Object.keys(obj.contact).length == 0) {
+        setAct(1);
+        document.getElementById("contactValidate").click();
+      } else if (prop > 2 && act == 1) {
+        document.getElementById("contactValidate").click();
+      } else if (prop > 3 && Object.keys(obj.service).length == 0) {
+        document.getElementById("serviceValidate").click();
+      } else if (prop > 3 && act == 2) {
+        document.getElementById("serviceValidate").click();
+      } else {
+        setAct(prop - 1);
+      }
     }
   };
   function ColorlibStepIcon(props: StepIconProps) {

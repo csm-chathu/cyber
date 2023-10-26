@@ -1,5 +1,4 @@
 "use client";
-import { yupResolver } from "@hookform/resolvers/yup";
 import {
   Autocomplete,
   Box,
@@ -10,12 +9,13 @@ import {
   Select,
   TextField,
   Typography,
+  TextFieldProps,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-const textProps = {
+const textProps: TextFieldProps = {
   id: "outlined-basic",
   variant: "outlined",
   fullWidth: true,
@@ -24,7 +24,7 @@ const textProps = {
   },
 };
 
-export default function Services({ obj, setObj, setAct, saveDraft }) {
+export default function Services({ obj, setObj, setAct }: any) {
   const theme = useTheme();
   const [service, setService] = useState([]);
   const [serviceCategory, setServiceCategory] = useState([]);
@@ -58,15 +58,15 @@ export default function Services({ obj, setObj, setAct, saveDraft }) {
     setServiceNameSelected(value);
   };
 
-  const searchCode = (val) => {
+  const searchCode = (val: string) => {
     if (val == "") {
       return setService(defaultService);
     }
     filterByValue(defaultService, val);
   };
 
-  function filterByValue(arrayOfObject, term) {
-    var ans = arrayOfObject.filter(function (v, i) {
+  function filterByValue(arrayOfObject: any, term: string) {
+    var ans = arrayOfObject.filter(function (v: any, i: number) {
       // console.log(v);
       if (
         v.label.toLowerCase().indexOf(term) >= 0 ||
@@ -114,7 +114,7 @@ export default function Services({ obj, setObj, setAct, saveDraft }) {
       </Typography>
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row">
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Select Healthcare Category</label>
 
             <Autocomplete
@@ -126,11 +126,11 @@ export default function Services({ obj, setObj, setAct, saveDraft }) {
               renderInput={(params) => (
                 <TextField {...params} label="label" key="id" />
               )}
-              onChange={(event, value) => searchCode(value.label)}
+              onChange={(event, value) => searchCode(value?.label || "")}
             />
           </Grid>
 
-          <Grid item xs={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <label>Search by Service Description or Code</label>
             <TextField
               {...textProps}
@@ -140,9 +140,8 @@ export default function Services({ obj, setObj, setAct, saveDraft }) {
           </Grid>
           <Grid item xs={12} sx={{ p: 1 }}>
             <label>Services</label>
-            <FormControl error={serviceError}>
+            <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
-                sx={{ width: "100%" }}
                 multiple
                 native
                 value={serviceSelected}
@@ -153,7 +152,7 @@ export default function Services({ obj, setObj, setAct, saveDraft }) {
                 }}
               >
                 {service.map((item, i) => (
-                  <option key={i} value={item.id}>
+                  <option key={i} value={item?.id}>
                     {item.label}
                   </option>
                 ))}

@@ -1,17 +1,29 @@
 "use client";
-import { Button, Grid, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  CircularProgress,
+  Collapse,
+  Grid,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
-import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
+import { SnackbarOrigin } from "@mui/material/Snackbar";
+import moment from "moment";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 
 interface State extends SnackbarOrigin {
   open: boolean;
 }
 
-export default function Estimation({ act, setAct, obj }) {
+export default function Estimation({ act, setAct, obj }: any) {
   const theme = useTheme();
   const [print, setPrint] = useState(false);
   const [email, setEmail] = useState(false);
+  const [emailSend, setEmailSend] = useState(false);
 
   const lable = {
     color: theme.palette.txt.muted,
@@ -27,10 +39,8 @@ export default function Estimation({ act, setAct, obj }) {
   };
 
   let sendEmail = async () => {
-    console.log(obj);
-
     try {
-      // setEmail(true);
+      setEmail(true);
       const emailResponse = await fetch("/api/send-email", {
         method: "POST",
         body: JSON.stringify({ ...obj }),
@@ -40,7 +50,10 @@ export default function Estimation({ act, setAct, obj }) {
       });
       if (emailResponse.ok) {
         setEmail(false);
-        alert("Email sent successfully");
+        setEmailSend(true);
+        setTimeout(function () {
+          setEmailSend(false);
+        }, 5000);
       } else {
         setEmail(false);
         alert("Email not sent");
@@ -85,43 +98,43 @@ export default function Estimation({ act, setAct, obj }) {
         Payment Estimate
       </Typography>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...lable }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
           Service
         </Grid>
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
           {obj?.service?.value["Service Description"] || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...lable }}>
-          Insurance
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
+          patient Plan
         </Grid>
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
           {obj?.insurance?.insured || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...lable }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
           Reference Number
         </Grid>
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
           {obj?.ref || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...lable }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
           Estimate Total
         </Grid>
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
           {obj?.service?.value?.Price || "N/A"}
         </Grid>
       </Grid>
       <Grid container direction="row">
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...lable }}>
-          Estimate Finish Date
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
+          Estimated on
         </Grid>
-        <Grid item xs={6} sx={{ p: 1, mt: 2, ...value }}>
-          24 Oct 2024
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
+          {moment(new Date()).format("MMMM Do YYYY")}
         </Grid>
       </Grid>
       <Grid
@@ -147,7 +160,13 @@ export default function Estimation({ act, setAct, obj }) {
           }}
           onClick={printPdf}
         >
-          Print
+          {print && (
+            <CircularProgress
+              sx={{ marginLeft: "0", marginRight: "10px", color: "black" }}
+              size={20}
+            />
+          )}
+          {print ? "Please wait" : "print"}
         </Button>
         <Button
           disabled={email}
@@ -161,15 +180,38 @@ export default function Estimation({ act, setAct, obj }) {
           }}
           onClick={sendEmail}
         >
-          Send an Email
+          {email && (
+            <CircularProgress
+              sx={{ marginLeft: "0", marginRight: "10px", color: "black" }}
+              size={20}
+            />
+          )}
+          {email ? "Please wait" : "Send an Email"}
         </Button>
-        {/* <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={true}
-        onClose={handleClose}
-        message="I love snacks"
-        key={vertical + horizontal}
-      /> */}
+        <Collapse in={emailSend}>
+          <Box
+            sx={{
+              width: "100%",
+              padding: "19px 406px 19px 56px",
+              backgroundColor: "#22C55E",
+              borderRadius: "4px 4px 4px 4px",
+              mt: 4,
+            }}
+          >
+            <Grid
+              display="flex"
+              container
+              direction="row"
+              alignItems="left"
+              justifyContent="left"
+            >
+              <MarkEmailReadIcon sx={{ fontSize: "30px", color: "#ffff" }} />
+              <Typography sx={{ color: "#ffff", ml: 1, mt: "4px" }}>
+                Email send successfully
+              </Typography>
+            </Grid>
+          </Box>
+        </Collapse>
       </Grid>
     </>
   );

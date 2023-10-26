@@ -2,9 +2,14 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export default function Home({ act, setAct }) {
+export default function Home({ act, setAct, obj, setObj }: any) {
   const theme = useTheme();
 
+  const handleAgree = () => {
+    let conArr = { ...obj, agreed: true };
+    setObj(conArr);
+    setAct(1);
+  };
   return (
     <>
       <Typography
@@ -68,7 +73,7 @@ export default function Home({ act, setAct }) {
             textTransform: "none",
             borderRadius: "8px",
           }}
-          onClick={() => setAct(1)}
+          onClick={handleAgree}
         >
           I Agree and continue
         </Button>
