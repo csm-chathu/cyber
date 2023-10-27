@@ -14,6 +14,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const textProps: TextFieldProps = {
   id: "outlined-basic",
@@ -168,43 +169,65 @@ export default function Services({ obj, setObj, setAct }: any) {
             </FormControl>
           </Grid>
         </Grid>
+
         <Grid
           display="flex"
-          container
-          direction="row"
-          alignItems="right"
-          justifyContent="right"
           gap={1}
           sx={{
-            mt: 10,
+            mt: 6,
           }}
         >
-          <Button
-            variant="outlined"
-            color="success"
+          <Grid
+            md={6}
+            display="flex"
+            container
+            direction="row"
+            alignItems="left"
+            justifyContent="left"
             sx={{
-              padding: "5px 30px",
-              fontSize: "16px",
-              textTransform: "none",
-              borderRadius: "8px",
-            }}
-            onClick={() => setAct(1)}
-          >
-            Back
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            color="success"
-            sx={{
-              padding: "5px 30px",
-              fontSize: "16px",
-              textTransform: "none",
-              borderRadius: "8px",
+              pl: 2,
             }}
           >
-            Continue
-          </Button>
+            <Button
+              variant="text"
+              color="success"
+              sx={{
+                padding: "5px 30px",
+                fontSize: "16px",
+                textTransform: "none",
+                borderRadius: "8px",
+                border: "none",
+              }}
+              onClick={() => setAct(1)}
+            >
+              <ArrowBackIcon /> Go Back
+            </Button>
+          </Grid>
+          <Grid
+            md={6}
+            display="flex"
+            container
+            direction="row"
+            alignItems="right"
+            justifyContent="right"
+            sx={{
+              pr: 2,
+            }}
+          >
+            <Button
+              type="submit"
+              variant="contained"
+              color="success"
+              sx={{
+                padding: "5px 30px",
+                fontSize: "16px",
+                textTransform: "none",
+                borderRadius: "8px",
+              }}
+            >
+              Continue
+            </Button>
+          </Grid>
         </Grid>
       </form>
     </>

@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from "react";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const schema = yup.object().shape({
   Fname: yup.string().required("First Name is required"),
@@ -237,41 +238,62 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
         </Grid>
         <Grid
           display="flex"
-          container
-          direction="row"
-          alignItems="right"
-          justifyContent="right"
           gap={1}
           sx={{
             mt: 6,
           }}
         >
-          <Button
-            variant="outlined"
-            color="success"
+          <Grid
+            md={6}
+            display="flex"
+            container
+            direction="row"
+            alignItems="left"
+            justifyContent="left"
             sx={{
-              padding: "5px 30px",
-              fontSize: "16px",
-              textTransform: "none",
-              borderRadius: "8px",
-            }}
-            onClick={() => setAct(0)}
-          >
-            Back
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            color="success"
-            sx={{
-              padding: "5px 30px",
-              fontSize: "16px",
-              textTransform: "none",
-              borderRadius: "8px",
+              pl: 2,
             }}
           >
-            Continue
-          </Button>
+            <Button
+              variant="text"
+              color="success"
+              sx={{
+                padding: "5px 30px",
+                fontSize: "16px",
+                textTransform: "none",
+                borderRadius: "8px",
+                border: "none",
+              }}
+              onClick={() => setAct(0)}
+            >
+              <ArrowBackIcon /> Go Back
+            </Button>
+          </Grid>
+          <Grid
+            md={6}
+            display="flex"
+            container
+            direction="row"
+            alignItems="right"
+            justifyContent="right"
+            sx={{
+              pr: 2,
+            }}
+          >
+            <Button
+              type="submit"
+              variant="contained"
+              color="success"
+              sx={{
+                padding: "5px 30px",
+                fontSize: "16px",
+                textTransform: "none",
+                borderRadius: "8px",
+              }}
+            >
+              Continue
+            </Button>
+          </Grid>
         </Grid>
       </form>
     </>

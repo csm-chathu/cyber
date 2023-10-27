@@ -14,11 +14,17 @@ import { OBJ_ARR } from "../utils/constant";
 export default function Main() {
   const [act, setAct] = React.useState(0);
   const [obj, setObj] = React.useState(OBJ_ARR);
+  const [paymentSelect, setPaymentSelect] = React.useState(1);
   const theme = useTheme();
   return (
     <>
       <Header />
-      <CustomizedSteppers act={act} setAct={setAct} obj={obj} />
+      <CustomizedSteppers
+        act={act}
+        setAct={setAct}
+        obj={obj}
+        paymentSelect={paymentSelect}
+      />
       <Container>
         {act == 0 && (
           <Home act={act} setAct={setAct} obj={obj} setObj={setObj} />
@@ -30,7 +36,14 @@ export default function Main() {
           <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
         {act == 3 && (
-          <Insurance act={act} setAct={setAct} obj={obj} setObj={setObj} />
+          <Insurance
+            act={act}
+            setAct={setAct}
+            obj={obj}
+            setObj={setObj}
+            paymentSelect={paymentSelect}
+            setPaymentSelect={setPaymentSelect}
+          />
         )}
         {act == 4 && (
           <Estimation act={act} setAct={setAct} obj={obj} setObj={setObj} />

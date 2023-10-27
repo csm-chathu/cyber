@@ -13,12 +13,16 @@ import {
   Collapse,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import * as yup from "yup";
 import FormControl from "@mui/material/FormControl";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Insurance({ setAct }: any) {
+export default function Insurance({
+  setAct,
+  paymentSelect,
+  setPaymentSelect,
+}: any) {
   const theme = useTheme();
   const [warn, setWarn] = useState(false);
 
@@ -30,11 +34,9 @@ export default function Insurance({ setAct }: any) {
       shrink: true,
     },
   };
-  let warnAlert = async () => {
-    setWarn(true);
-    setTimeout(function () {
-      setWarn(false);
-    }, 3000);
+  let setPaymentSelectHandler = async (val: number) => {
+    setPaymentSelect(val);
+    val == 2 ? setWarn(true) : setWarn(false);
   };
   return (
     <>
@@ -69,7 +71,12 @@ export default function Insurance({ setAct }: any) {
             >
               <FormControlLabel
                 value="1"
-                control={<Radio />}
+                control={
+                  <Radio
+                    checked={paymentSelect == 1 ? true : false}
+                    onChange={() => setPaymentSelectHandler(1)}
+                  />
+                }
                 label="Self Pay"
                 sx={{
                   padding: "5px 16px 5px 18px",
@@ -77,19 +84,24 @@ export default function Insurance({ setAct }: any) {
                   borderRadius: "8px",
                   ml: 0,
                   width: "403px",
-                  backgroundColor: "#D4FFE4",
+                  backgroundColor: paymentSelect == 1 ? "#D4FFE4" : "",
                   mt: 1,
                 }}
               />
               <FormControlLabel
                 value="2"
-                control={<Radio />}
+                control={
+                  <Radio
+                    checked={paymentSelect == 2 ? true : false}
+                    onChange={() => setPaymentSelectHandler(2)}
+                  />
+                }
                 label="Insurance"
-                onClick={warnAlert}
                 sx={{
                   padding: "5px 16px 5px 18px",
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
+                  backgroundColor: paymentSelect == 2 ? "#D4FFE4" : "",
                   ml: 0,
                   width: "403px",
                   mt: 1,
@@ -189,44 +201,67 @@ export default function Insurance({ setAct }: any) {
           <TextField {...textProps} disabled placeholder="Enter Group number" />
         </Grid>
       </Grid>
+
       <Grid
         display="flex"
-        container
-        direction="row"
-        alignItems="right"
-        justifyContent="right"
         gap={1}
         sx={{
           mt: 6,
         }}
       >
-        <Button
-          variant="outlined"
-          color="success"
+        <Grid
+          md={6}
+          display="flex"
+          container
+          direction="row"
+          alignItems="left"
+          justifyContent="left"
           sx={{
-            padding: "5px 30px",
-            fontSize: "16px",
-            textTransform: "none",
-            borderRadius: "8px",
+            pl: 2,
           }}
-          onClick={() => setAct(2)}
         >
-          Back
-        </Button>
-        <Button
-          type="submit"
-          variant="contained"
-          color="success"
+          <Button
+            variant="text"
+            color="success"
+            sx={{
+              padding: "5px 30px",
+              fontSize: "16px",
+              textTransform: "none",
+              borderRadius: "8px",
+              border: "none",
+            }}
+            onClick={() => setAct(1)}
+          >
+            <ArrowBackIcon /> Go Back
+          </Button>
+        </Grid>
+        <Grid
+          md={6}
+          display="flex"
+          container
+          direction="row"
+          alignItems="right"
+          justifyContent="right"
           sx={{
-            padding: "5px 30px",
-            fontSize: "16px",
-            textTransform: "none",
-            borderRadius: "8px",
+            pr: 2,
           }}
-          onClick={() => setAct(4)}
         >
-          Continue
-        </Button>
+          <Button
+            disabled={paymentSelect == 2 ? true : false}
+            type="submit"
+            variant="contained"
+            color="success"
+            sx={{
+              padding: "5px 30px",
+              fontSize: "16px",
+              textTransform: "none",
+              borderRadius: "8px",
+            }}
+            onClick={() => setAct(4)}
+          >
+            Continue
+          </Button>
+        </Grid>
       </Grid>
     </>
   );
