@@ -128,18 +128,18 @@ const ColorlibStepIconRoot = styled("div")<{
 
 const steps = ["Home", "Contact", "Services", "Payment", "Estimation"];
 
-export default function CustomizedSteppers({ act, setAct, obj }) {
-  const setStepper = (prop) => {
+export default function CustomizedSteppers({ act, setAct, obj }: any) {
+  const setStepper = (prop: number) => {
     if (obj.agreed) {
       if (prop > 2 && Object.keys(obj.contact).length == 0) {
         setAct(1);
-        document.getElementById("contactValidate").click();
+        document.getElementById("contactValidate")?.click();
       } else if (prop > 2 && act == 1) {
-        document.getElementById("contactValidate").click();
+        document.getElementById("contactValidate")?.click();
       } else if (prop > 3 && Object.keys(obj.service).length == 0) {
-        document.getElementById("serviceValidate").click();
+        document.getElementById("serviceValidate")?.click();
       } else if (prop > 3 && act == 2) {
-        document.getElementById("serviceValidate").click();
+        document.getElementById("serviceValidate")?.click();
       } else {
         setAct(prop - 1);
       }
@@ -159,7 +159,7 @@ export default function CustomizedSteppers({ act, setAct, obj }) {
       <ColorlibStepIconRoot
         ownerState={{ completed, active }}
         className={className}
-        onClick={() => setStepper(props.icon)}
+        onClick={() => setStepper(props?.icon)}
       >
         {icons[String(props.icon)]}
       </ColorlibStepIconRoot>

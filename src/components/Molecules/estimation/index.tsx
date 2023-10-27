@@ -107,7 +107,7 @@ export default function Estimation({ act, setAct, obj }: any) {
       </Grid>
       <Grid container direction="row">
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
-          patient Plan
+          Patient Plan
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
           {obj?.insurance?.insured || "N/A"}

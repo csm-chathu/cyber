@@ -180,6 +180,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
               fontSize: "24px",
               fontWeight: 500,
               mb: 3,
+              mt: 3,
             }}
           >
             Address
