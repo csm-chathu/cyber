@@ -197,7 +197,7 @@ export default function Estimation({ act, setAct, obj }: any) {
             <Box
               sx={{
                 width: "100%",
-                padding: "19px 406px 19px 56px",
+                padding: "19px 40px 19px 56px",
                 backgroundColor:
                   sendStatus == "success" ? "#22C55E" : "#d75353",
                 borderRadius: "4px 4px 4px 4px",

@@ -258,7 +258,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
               variant="text"
               color="success"
               sx={{
-                padding: "5px 30px",
+                padding: "5px 25px",
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",

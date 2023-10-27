@@ -192,7 +192,7 @@ export default function Services({ obj, setObj, setAct }: any) {
               variant="text"
               color="success"
               sx={{
-                padding: "5px 30px",
+                padding: "5px 25px",
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",
@@ -220,7 +220,7 @@ export default function Services({ obj, setObj, setAct }: any) {
               variant="contained"
               color="success"
               sx={{
-                padding: "5px 30px",
+                padding: "5px 25px",
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",

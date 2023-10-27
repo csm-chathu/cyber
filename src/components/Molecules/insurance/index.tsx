@@ -83,7 +83,13 @@ export default function Insurance({
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "403px",
+                  width: {
+                    xs: "300px",
+                    sm: "300px",
+                    md: "403px",
+                    lg: "403px",
+                    xl: "403px",
+                  },
                   backgroundColor: paymentSelect == 1 ? "#D4FFE4" : "",
                   mt: 1,
                 }}
@@ -103,7 +109,13 @@ export default function Insurance({
                   borderRadius: "8px",
                   backgroundColor: paymentSelect == 2 ? "#D4FFE4" : "",
                   ml: 0,
-                  width: "403px",
+                  width: {
+                    xs: "300px",
+                    sm: "300px",
+                    md: "403px",
+                    lg: "403px",
+                    xl: "403px",
+                  },
                   mt: 1,
                 }}
               />
@@ -139,7 +151,13 @@ export default function Insurance({
                   border: "1px solid #CEDCF6",
                   borderRadius: "8px",
                   ml: 0,
-                  width: "403px",
+                  width: {
+                    xs: "300px",
+                    sm: "300px",
+                    md: "403px",
+                    lg: "403px",
+                    xl: "403px",
+                  },
                   backgroundColor: "#D4FFE4",
                 }}
               />
@@ -154,7 +172,13 @@ export default function Insurance({
                   borderRadius: "8px",
                   ml: 0,
                   mt: 1,
-                  width: "403px",
+                  width: {
+                    xs: "300px",
+                    sm: "300px",
+                    md: "403px",
+                    lg: "403px",
+                    xl: "403px",
+                  },
                 }}
               />
             </RadioGroup>
@@ -225,7 +249,7 @@ export default function Insurance({
             color="success"
             disabled={paymentSelect == 2 ? true : false}
             sx={{
-              padding: "5px 30px",
+              padding: "5px 25px",
               fontSize: "16px",
               textTransform: "none",
               borderRadius: "8px",
@@ -254,7 +278,7 @@ export default function Insurance({
             variant="contained"
             color="success"
             sx={{
-              padding: "5px 30px",
+              padding: "5px 25px",
               fontSize: "16px",
               textTransform: "none",
               borderRadius: "8px",

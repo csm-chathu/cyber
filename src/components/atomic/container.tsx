@@ -15,7 +15,13 @@ export default function Container({ children }: any) {
     >
       <Grid
         sx={{
-          p: 10,
+          p: {
+            xs: 5,
+            sm: 5,
+            md: 10,
+            lg: 10,
+            xl: 10,
+          },
           width: "1016px",
           borderRadius: "16px",
           backgroundColor: "#FFF",
