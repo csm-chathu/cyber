@@ -16,7 +16,6 @@ export default function Text({ lbl, grd, ...props }: TextProps) {
       <TextField
         {...props}
         id="outlined-basic"
-        // label={lbl}
         variant="outlined"
         fullWidth={true}
         sx={{ borderRadius: "12px" }}

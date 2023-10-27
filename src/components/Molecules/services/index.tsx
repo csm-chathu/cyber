@@ -58,26 +58,31 @@ export default function Services({ obj, setObj, setAct }: any) {
     setServiceNameSelected(value);
   };
 
-  const searchCode = (val: string) => {
+  const searchCode = (val: string, cat: boolean = false) => {
     if (val == "") {
       return setService(defaultService);
     }
-    filterByValue(defaultService, val);
+    filterByValue(defaultService, val, cat);
   };
 
-  function filterByValue(arrayOfObject: any, term: string) {
-    var ans = arrayOfObject.filter(function (v: any, i: number) {
-      // console.log(v);
-      if (
-        v.label.toLowerCase().indexOf(term) >= 0 ||
-        v.value["Service Category"].toLowerCase().indexOf(term) >= 0
-      ) {
-        return true;
-      } else false;
-    });
-    setService(ans);
+  function filterByValue(arrayOfObject: any, term: string, cat: boolean) {
+    if (!cat) {
+      var ans = arrayOfObject.filter(function (v: any, i: number) {
+        if (
+          v.label.toLowerCase().indexOf(term) >= 0 ||
+          v.value["Service Category"].toLowerCase().indexOf(term) >= 0
+        ) {
+          return true;
+        } else false;
+      });
+      setService(ans);
+    } else {
+      var ans = arrayOfObject.filter((item: any) => {
+        return item.value["Service Category"] == term;
+      });
+      setService(ans);
+    }
   }
-
   const {
     register,
     handleSubmit,
@@ -124,9 +129,9 @@ export default function Services({ obj, setObj, setAct }: any) {
               options={serviceCategory}
               sx={{ width: "100%" }}
               renderInput={(params) => (
-                <TextField {...params} label="label" key="id" />
+                <TextField {...params} placeholder="Select Category" key="id" />
               )}
-              onChange={(event, value) => searchCode(value?.label || "")}
+              onChange={(event, value) => searchCode(value?.label, true)}
             />
           </Grid>
 

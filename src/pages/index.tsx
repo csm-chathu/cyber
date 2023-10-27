@@ -6,50 +6,34 @@ import Estimation from "../components/Molecules/estimation";
 import Insurance from "../components/Molecules/insurance";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import CustomizedSteppers from "../components/Molecules/stepper/stepper";
+import Header from "../components/Molecules/header/header";
+import React from "react";
+import { OBJ_ARR } from "../utils/constant";
 
-export default function Main({ act, setAct, obj, setObj, saveDraft }) {
+export default function Main() {
+  const [act, setAct] = React.useState(0);
+  const [obj, setObj] = React.useState(OBJ_ARR);
   const theme = useTheme();
   return (
     <>
+      <Header />
+      <CustomizedSteppers act={act} setAct={setAct} obj={obj} />
       <Container>
         {act == 0 && (
           <Home act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
         {act == 1 && (
-          <Contact
-            act={act}
-            setAct={setAct}
-            obj={obj}
-            setObj={setObj}
-            saveDraft={saveDraft}
-          />
+          <Contact act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
         {act == 2 && (
-          <Services
-            act={act}
-            setAct={setAct}
-            obj={obj}
-            setObj={setObj}
-            saveDraft={saveDraft}
-          />
+          <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
         {act == 3 && (
-          <Insurance
-            act={act}
-            setAct={setAct}
-            obj={obj}
-            setObj={setObj}
-            saveDraft={saveDraft}
-          />
+          <Insurance act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
         {act == 4 && (
-          <Estimation
-            act={act}
-            setAct={setAct}
-            obj={obj}
-            setObj={setObj}
-            saveDraft={saveDraft}
-          />
+          <Estimation act={act} setAct={setAct} obj={obj} setObj={setObj} />
         )}
       </Container>
       {act != 0 && (

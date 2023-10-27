@@ -7,7 +7,7 @@ export async function generatePdf(params: any) {
   const page = await browser.newPage();
   const imagePath = params?.image || "";
   // var imageAsBase64 = fs.readFileSync(imagePath, "base64");
-  console.log(params);
+  // console.log(params);
 
   const customContent = `
   <html>

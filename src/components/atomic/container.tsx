@@ -2,7 +2,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export default function Container({ children }) {
+export default function Container({ children }: any) {
   const theme = useTheme();
 
   return (
