@@ -3,7 +3,7 @@ import * as price from "../../mock-data/price.json";
 export default async (req: any, res: any) => {
   let conObj: any = [];
   let serviceCategory: any = [];
-  price.map((item, i) => {
+  let getService = price.map((item, i) => {
     conObj.push({
       label: `(${item["Service Code"]}) ${item["Service Description"]}`,
       value: item,

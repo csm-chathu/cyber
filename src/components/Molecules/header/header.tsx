@@ -34,6 +34,7 @@ export default function Header() {
         justifyContent="right"
         display="flex"
         direction="row"
+        container
       >
         <Typography>Need help? </Typography>
         <Typography sx={{ ml: 2, color: "#0019FF" }}> 626-338-8481</Typography>
