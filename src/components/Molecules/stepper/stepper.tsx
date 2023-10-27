@@ -78,7 +78,7 @@ export default function CustomizedSteppers({
   obj,
   paymentSelect,
 }: any) {
-  const setStepper = (prop: number) => {
+  const setStepper = (prop: any) => {
     if (obj.agreed) {
       if (paymentSelect == 1) {
         if (prop > 2 && Object.keys(obj.contact).length == 0) {

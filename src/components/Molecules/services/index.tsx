@@ -46,9 +46,7 @@ export default function Services({ obj, setObj, setAct }: any) {
   }, []);
 
   const [serviceSelected, setServiceNameSelected] = useState<string[]>([]);
-  const handleChangeMultiple = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleChangeMultiple = (event: any) => {
     const { options } = event.target;
     const value: string[] = [];
     for (let i = 0, l = options.length; i < l; i += 1) {
@@ -95,7 +93,9 @@ export default function Services({ obj, setObj, setAct }: any) {
     if (serviceSelected.length == 0) {
       return setServiceError(true);
     }
-    let selected = defaultService.filter((item) => item.id == serviceSelected);
+    let selected = defaultService.filter(
+      (item: any) => item.id == serviceSelected
+    );
     if (selected.length > 0) {
       let conArr = { ...obj, service: selected[0] };
       setObj(conArr);
@@ -132,7 +132,7 @@ export default function Services({ obj, setObj, setAct }: any) {
               renderInput={(params) => (
                 <TextField {...params} placeholder="Select Category" key="id" />
               )}
-              onChange={(event, value) => searchCode(value?.label, true)}
+              onChange={(event, value: any) => searchCode(value?.label, true)}
             />
           </Grid>
 
@@ -157,7 +157,7 @@ export default function Services({ obj, setObj, setAct }: any) {
                   id: "select-multiple-native",
                 }}
               >
-                {service.map((item, i) => (
+                {service.map((item: any, i) => (
                   <option key={i} value={item?.id}>
                     {item.label}
                   </option>

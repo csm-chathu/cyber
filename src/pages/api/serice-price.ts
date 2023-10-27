@@ -1,7 +1,6 @@
-import * as service from "../../mock-data/service.json";
 import * as price from "../../mock-data/price.json";
 
-export default async (req, res) => {
+export default async (req: any, res: any) => {
   let conObj: any = [];
   let serviceCategory: any = [];
   price.map((item, i) => {
@@ -18,8 +17,10 @@ export default async (req, res) => {
     });
   });
 
-  const unique = serviceCategory.filter((obj, index) => {
-    return index === serviceCategory.findIndex((o) => obj.label === o.label);
+  const unique = serviceCategory.filter((obj: any, index: any) => {
+    return (
+      index === serviceCategory.findIndex((o: any) => obj.label === o.label)
+    );
   });
 
   res.status(200).json({ option: conObj, category: unique });
