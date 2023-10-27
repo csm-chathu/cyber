@@ -197,6 +197,7 @@ export default function Services({ obj, setObj, setAct }: any) {
                 textTransform: "none",
                 borderRadius: "8px",
                 border: "none",
+                backgroundColor: "#F4F8FF",
               }}
               onClick={() => setAct(1)}
             >

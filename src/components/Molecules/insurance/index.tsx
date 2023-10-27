@@ -223,12 +223,14 @@ export default function Insurance({
           <Button
             variant="text"
             color="success"
+            disabled={paymentSelect == 2 ? true : false}
             sx={{
               padding: "5px 30px",
               fontSize: "16px",
               textTransform: "none",
               borderRadius: "8px",
               border: "none",
+              backgroundColor: "#F4F8FF",
             }}
             onClick={() => setAct(1)}
           >

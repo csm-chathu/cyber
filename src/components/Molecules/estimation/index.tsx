@@ -14,6 +14,7 @@ import { useState } from "react";
 import { SnackbarOrigin } from "@mui/material/Snackbar";
 import moment from "moment";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 
 interface State extends SnackbarOrigin {
   open: boolean;
@@ -22,6 +23,7 @@ interface State extends SnackbarOrigin {
 export default function Estimation({ act, setAct, obj }: any) {
   const theme = useTheme();
   const [print, setPrint] = useState(false);
+  const [sendStatus, setSendStatus] = useState("");
   const [email, setEmail] = useState(false);
   const [emailSend, setEmailSend] = useState(false);
 
@@ -51,15 +53,17 @@ export default function Estimation({ act, setAct, obj }: any) {
       if (emailResponse.ok) {
         setEmail(false);
         setEmailSend(true);
+        setSendStatus("success");
         setTimeout(function () {
           setEmailSend(false);
-        }, 5000);
+        }, 4000);
       } else {
         setEmail(false);
-        alert("Email not sent");
+        setSendStatus("failed");
       }
     } catch (error) {
       console.error(error);
+      setSendStatus("failed");
     }
   };
   let printPdf = async () => {
@@ -188,30 +192,43 @@ export default function Estimation({ act, setAct, obj }: any) {
           )}
           {email ? "Please wait" : "Send an Email"}
         </Button>
-        <Collapse in={emailSend}>
-          <Box
-            sx={{
-              width: "100%",
-              padding: "19px 406px 19px 56px",
-              backgroundColor: "#22C55E",
-              borderRadius: "4px 4px 4px 4px",
-              mt: 4,
-            }}
-          >
-            <Grid
-              display="flex"
-              container
-              direction="row"
-              alignItems="left"
-              justifyContent="left"
+        <Grid sm={12}>
+          <Collapse in={emailSend}>
+            <Box
+              sx={{
+                width: "100%",
+                padding: "19px 406px 19px 56px",
+                backgroundColor:
+                  sendStatus == "success" ? "#22C55E" : "#d75353",
+                borderRadius: "4px 4px 4px 4px",
+                mt: 4,
+              }}
             >
-              <MarkEmailReadIcon sx={{ fontSize: "30px", color: "#ffff" }} />
-              <Typography sx={{ color: "#ffff", ml: 1, mt: "4px" }}>
-                Email send successfully
-              </Typography>
-            </Grid>
-          </Box>
-        </Collapse>
+              <Grid
+                display="flex"
+                container
+                direction="row"
+                alignItems="left"
+                justifyContent="left"
+              >
+                {sendStatus == "success" && (
+                  <MarkEmailReadIcon
+                    sx={{ fontSize: "30px", color: "#ffff" }}
+                  />
+                )}
+                {sendStatus == "failed" && (
+                  <ReportGmailerrorredIcon
+                    sx={{ fontSize: "30px", color: "#ffff" }}
+                  />
+                )}
+                <Typography sx={{ color: "#ffff", ml: 1, mt: "4px" }}>
+                  {sendStatus == "success" && "Email send successfully"}
+                  {sendStatus == "failed" && "Email send failed"}
+                </Typography>
+              </Grid>
+            </Box>
+          </Collapse>
+        </Grid>
       </Grid>
     </>
   );

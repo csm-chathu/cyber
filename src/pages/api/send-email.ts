@@ -2,7 +2,7 @@
 import nodemailer from "nodemailer";
 import { generatePdf } from "../../helpers/generatePdf";
 
-export default async (req, res) => {
+export default async (req: any, res: any) => {
   const pdfBuffer = await generatePdf(req.body);
   var transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,

@@ -263,6 +263,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
                 textTransform: "none",
                 borderRadius: "8px",
                 border: "none",
+                backgroundColor: "#F4F8FF",
               }}
               onClick={() => setAct(0)}
             >

@@ -43,19 +43,19 @@ export async function generatePdf(params: any) {
   <p style="color: #22C55E;font-size: 35px;font-weight: 500;">Price Estimation</p>
 </div>
 <div style="width: 100%;display: flex;">
-  <div style="width: 33.3%;">
+  <div style="width: 40%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.contact?.Fname + " " + params?.contact?.Lname
     }</p>
   </div>
-  <div style="width: 33.3%;">
+  <div style="width: 40%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Reference Id</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.ref || "N/A"
     }</p>
   </div>
-  <div style="width: 33.3%;">
+  <div style="width:25%;">
     <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${moment(
       new Date()
@@ -66,7 +66,7 @@ export async function generatePdf(params: any) {
   <div style="width: 100%; ">
     <p style="color:black;font-size:20;font-weight: 500;">Patient Details</p>
 </div>
-<div style="width: 100%;display: flex;border: 1px solid black;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
   <div style="width: 50%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Name</p>
   </div>
@@ -78,7 +78,7 @@ export async function generatePdf(params: any) {
   </div>
 
   
-<div style="width: 100%;display: flex;border: 1px solid black;border-top: none;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
   <div style="width: 50%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Plan</p>
   </div>
@@ -89,7 +89,7 @@ export async function generatePdf(params: any) {
   </div>
 </div>
 
-<div style="width: 100%;display: flex;border: 1px solid black;border-top: none;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
   <div style="width: 50%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Phone Number</p>
   </div>
@@ -100,7 +100,7 @@ export async function generatePdf(params: any) {
   </div>
 </div>
 
-<div style="width: 100%;display: flex;border: 1px solid black;border-top: none;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
   <div style="width: 50%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Address</p>
   </div>
@@ -118,7 +118,7 @@ export async function generatePdf(params: any) {
 <div style="width: 100%;margin-top: 42px; ">
   <p style="color:black;font-size:20;font-weight: 500;">Estimate Details</p>
 </div>
-<div style="width: 100%;display: flex;border: 1px solid black;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
 <div style="width: 50%;">
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;">Service</p>
 </div>
@@ -129,7 +129,7 @@ export async function generatePdf(params: any) {
 </div>
 </div>
 
-<div style="width: 100%;display: flex;border: 1px solid black;border-top: none;">
+<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
 <div style="width: 50%;">
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;margin-top: 25px;">Total Estimated Patient Responsibility</p>
 </div>
