@@ -199,7 +199,6 @@ export default function Insurance({
             justifyContent="left"
             sx={{ pt: 1 }}
           >
-            <ErrorOutlineIcon />
             <Typography
               sx={{
                 color: theme.palette.txt.muted,
@@ -207,6 +206,7 @@ export default function Insurance({
                 ml: 1,
               }}
             >
+              <ErrorOutlineIcon />
               If your insurance company isn't listed, call the phone number in
               the contact information.
             </Typography>

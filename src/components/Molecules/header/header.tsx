@@ -1,10 +1,16 @@
 "use client";
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Header() {
   const theme = useTheme();
+  const [img, setImg] = useState("");
+  useEffect(() => {
+    const AppLogo = process.env.NEXT_PUBLIC_APP_LOGO;
+    setImg(AppLogo || "");
+  }, []);
 
   return (
     <Grid
@@ -21,7 +27,7 @@ export default function Header() {
             width: 150,
             mb: 2,
           }}
-          src="images/image1.png"
+          src={"/" + img}
         />
       </Grid>
       <Grid

@@ -16,6 +16,7 @@ export default function Main() {
   const [obj, setObj] = React.useState(OBJ_ARR);
   const [paymentSelect, setPaymentSelect] = React.useState(1);
   const theme = useTheme();
+
   return (
     <>
       <Header />
