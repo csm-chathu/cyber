@@ -192,7 +192,7 @@ export default function Estimation({ act, setAct, obj }: any) {
           )}
           {email ? "Please wait" : "Send an Email"}
         </Button>
-        <Grid sm={12}>
+        <Grid item sm={12}>
           <Collapse in={emailSend}>
             <Box
               sx={{

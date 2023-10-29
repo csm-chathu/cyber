@@ -244,6 +244,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
           }}
         >
           <Grid
+            item
             md={6}
             display="flex"
             container
@@ -271,6 +272,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
             </Button>
           </Grid>
           <Grid
+            item
             md={6}
             display="flex"
             container

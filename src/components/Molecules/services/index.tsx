@@ -178,6 +178,7 @@ export default function Services({ obj, setObj, setAct }: any) {
           }}
         >
           <Grid
+            item
             md={6}
             display="flex"
             container
@@ -206,6 +207,7 @@ export default function Services({ obj, setObj, setAct }: any) {
           </Grid>
           <Grid
             md={6}
+            item
             display="flex"
             container
             direction="row"

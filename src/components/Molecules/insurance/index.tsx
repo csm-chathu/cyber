@@ -159,6 +159,7 @@ export default function Insurance({
                     xl: "403px",
                   },
                   backgroundColor: "#D4FFE4",
+                  mt: 1,
                 }}
               />
               <FormControlLabel
@@ -234,6 +235,7 @@ export default function Insurance({
         }}
       >
         <Grid
+          item
           md={6}
           display="flex"
           container
@@ -262,6 +264,7 @@ export default function Insurance({
           </Button>
         </Grid>
         <Grid
+          item
           md={6}
           display="flex"
           container
