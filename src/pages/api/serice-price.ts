@@ -1,9 +1,9 @@
-import * as price from "../../mock-data/price.json";
+import { PRICELIST } from "../../mock-data/price";
 
 export default async (req: any, res: any) => {
   let conObj: any = [];
   let serviceCategory: any = [];
-  let getService = price.map((item, i) => {
+  let getService = PRICELIST.map((item, i) => {
     conObj.push({
       label: `(${item["Service Code"]}) ${item["Service Description"]}`,
       value: item,
