@@ -23,8 +23,8 @@ const schema = yup.object().shape({
   Fname: yup.string().required("First Name is required"),
   Lname: yup.string().required("Last Name is required"),
   dob: yup.string(),
-  email: yup.string().required("Email is required"),
-  phone: yup.string().required("Phone number is required"),
+  email: yup.string().email().required("Email is required"),
+  phone: yup.number().required("Phone number is required"),
   city: yup.string().required("City is required"),
   state: yup.string().required("State is required"),
   zipcode: yup.string().required("Zip Code is required"),
@@ -264,7 +264,7 @@ export default function Contact({ obj, setObj, setAct, saveDraft }: any) {
                 textTransform: "none",
                 borderRadius: "8px",
                 border: "none",
-                backgroundColor: "#F4F8FF",
+                backgroundColor: theme.palette.secondary.main,
               }}
               onClick={() => setAct(0)}
             >

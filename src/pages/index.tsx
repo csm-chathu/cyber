@@ -57,7 +57,7 @@ export default function Main() {
             marginLeft: "3%",
             mt: 6,
             mb: 2,
-            backgroundColor: "#0F1A2C",
+            backgroundColor: theme.palette.success.main,
             borderRadius: "8px",
             padding: "20px",
           }}
@@ -66,7 +66,7 @@ export default function Main() {
             sx={{
               fontSize: "18px",
               fontWeight: "400",
-              color: "#ffff",
+              color: theme.palette.txt.inverted,
             }}
           >
             Disclaimer
@@ -75,7 +75,7 @@ export default function Main() {
             sx={{
               fontSize: "14px",
               fontWeight: "400",
-              color: theme.palette.txt.muted,
+              color: theme.palette.txt.inverted,
             }}
           >
             Please read carefully and understand that the estimate provided is

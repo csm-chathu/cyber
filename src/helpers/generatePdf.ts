@@ -4,9 +4,9 @@ import { readPublicLogo } from "../utils/imageRead";
 
 export async function generatePdf(params: any) {
   const browser = await puppeteer.launch({
-  headless: true,
-  args: ['--enable-gpu', '--no-sandbox', '--disable-setuid-sandbox'],
-});
+    headless: true,
+    args: ["--enable-gpu", "--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
   const imageBuffer = readPublicLogo();
   const customContent = `
@@ -14,7 +14,8 @@ export async function generatePdf(params: any) {
   <head>
     <style>
       .banner{
-        width:100%;background-color:#22C55E ;height: 170px;display: flex;
+        width:100%;;height: 170px;display: flex;
+        border-bottom: 1px solid  #CEDCF6;
       }
       @media print {
    body {
@@ -23,7 +24,7 @@ export async function generatePdf(params: any) {
 }
     </style>
   </head>
-  <body style="font-family: poppins,sans-serif;">
+  <body style="font-family: poppins,sans-serif;margin:0;">
  <div style="width:100%;">
 
  <div class="banner">
@@ -32,7 +33,7 @@ export async function generatePdf(params: any) {
   <Image src=${imageBuffer} height="106px" width="361px" style="margin-top: 45px; margin-left: 20px;">
 
   </div>
-  <div style="width: 40%;height: inherit;color: white;font-size: 16px;font-weight: 500; padding-top:30px ;">
+  <div style="width: 40%;height: inherit;color: #000;font-size: 16px;font-weight: 500; padding-top:30px ;text-align:right;padding-right:20px">
     <p>725 S, Orange Av, West Covina, CA 91790</p>
     <p>626-338-8481</p>
     <p>administration@westcovinamc.com</p>
@@ -41,7 +42,7 @@ export async function generatePdf(params: any) {
 </div>
 <div style="padding: 10px 30px;">
 <div style="width: 100%;">
-  <p style="color: #22C55E;font-size: 35px;font-weight: 500;">Price Estimation</p>
+  <p style="color: #008D78;font-size: 35px;font-weight: 500;">Price Estimation</p>
 </div>
 <div style="width: 100%;display: flex;">
   <div style="width: 40%;">
@@ -120,10 +121,10 @@ export async function generatePdf(params: any) {
   <p style="color:black;font-size:20;font-weight: 500;">Estimate Details</p>
 </div>
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
-<div style="width: 50%;">
+<div style="width: 30%;">
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;">Service</p>
 </div>
-<div style="width: 50%;">
+<div style="width: 70%;">
   <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 5px 10px;">${
     params?.service?.value["Service Description"]
   }</p>
@@ -140,9 +141,9 @@ export async function generatePdf(params: any) {
   }</p>
 </div>
 </div>
-<div style="width: 100%; margin-top: 20px; ">
-  <p style="font-size: 14px;font-weight: 400;color: #82889B"><span style="color: #020202;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
 </div>
+<div style="width:98%; margin-top: 40px; background-color:#008D78;padding:15px;line-height: normal;">
+  <p style="font-size: 14px;font-weight: 400; color:#FFF"><span style="color:#FFF;font-weight: 600;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
 </div>
 </div>
   </body>

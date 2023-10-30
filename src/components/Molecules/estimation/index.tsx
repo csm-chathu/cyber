@@ -165,10 +165,12 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           variant="outlined"
           color="success"
           sx={{
-            padding: "5px 30px",
+            padding: "5px 70px",
             fontSize: "16px",
             textTransform: "none",
             borderRadius: "8px",
+            backgroundColor: theme.palette.secondary.main,
+            borderColor: theme.palette.secondary.main,
           }}
           onClick={printPdf}
         >
@@ -207,7 +209,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
                 width: "100%",
                 padding: "19px 40px 19px 56px",
                 backgroundColor:
-                  sendStatus == "success" ? "#22C55E" : "#d75353",
+                  sendStatus == "success" ? "#58D08F" : "#d75353",
                 borderRadius: "4px 4px 4px 4px",
                 mt: 4,
               }}

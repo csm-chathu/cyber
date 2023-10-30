@@ -32,12 +32,12 @@ export default createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#3B82F6",
-      dark: "#2563EB",
+      main: "#58D08F",
+      dark: "#58D08F",
     },
     secondary: {
-      main: "#120F2F",
-      dark: "#0D0B24",
+      main: "#D4FFF9",
+      dark: "#D4FFF9",
     },
     surfaceLight: {
       primary: "#EFF6FF",
@@ -64,8 +64,8 @@ export default createTheme({
       dark: "#EA580C",
     },
     success: {
-      main: "#16A34A",
-      dark: "#16A34A",
+      main: "#008D78",
+      dark: "#008D78",
     },
     background: {
       default: "#FFF",
