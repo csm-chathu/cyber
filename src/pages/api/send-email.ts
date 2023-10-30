@@ -1,45 +1,37 @@
-// pages/api/send-email.js
-import nodemailer from "nodemailer";
 import { generatePdf } from "../../helpers/generatePdf";
+
+import formData from "form-data";
+import Mailgun from "mailgun.js";
 
 export default async (req: any, res: any) => {
   const pdfBuffer = await generatePdf(req.body);
-  var transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: 2525,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    // pool: true,
-    // logger: true,
-    // debug: true,
-    // secure: false,
-    // tls: { rejectUnauthorized: false },
-    // connectionTimeout: 5000,
+  const file = {
+    filename: "WCMC" + new Date().getTime() + ".pdf",
+    data: pdfBuffer,
+  };
+  const attachment = [file];
+
+  const mailgun = new Mailgun(formData);
+  const client = mailgun.client({
+    username: process.env.MAIL_GUN_USERNAME || "",
+    key: process.env.MAIL_GUN_API || "",
   });
 
-  console.log(req.body.contact.email);
-
-  const mailOptions = {
-    from: process.env.EMAIL,
+  const messageData = {
+    from: process.env.MAIL_GUN_FROM || "",
     to: req.body.contact.email,
     subject: "WCMC",
     text: "Please find the PDF attached.",
-    attachments: [
-      {
-        filename: "WCMC" + new Date().getTime() + ".pdf",
-        content: pdfBuffer,
-      },
-    ],
+    attachment,
   };
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error(error);
+  client.messages
+    .create(process.env.MAIL_GUN_DOMAIN || "", messageData)
+    .then((response) => {
+      console.log("Email sent: " + res);
+      res.status(200).send(response);
+    })
+    .catch((err) => {
+      console.error(err);
       res.status(500).send("Email not sent");
-    } else {
-      console.log("Email sent: " + info.response);
-      res.status(200).send("Email sent");
-    }
-  });
+    });
 };

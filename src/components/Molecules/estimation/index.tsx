@@ -15,12 +15,13 @@ import { SnackbarOrigin } from "@mui/material/Snackbar";
 import moment from "moment";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
+import { OBJ_ARR } from "../../../utils/constant";
 
 interface State extends SnackbarOrigin {
   open: boolean;
 }
 
-export default function Estimation({ act, setAct, obj }: any) {
+export default function Estimation({ act, setAct, obj, setObj }: any) {
   const theme = useTheme();
   const [print, setPrint] = useState(false);
   const [sendStatus, setSendStatus] = useState("");
@@ -50,19 +51,26 @@ export default function Estimation({ act, setAct, obj }: any) {
           "Content-Type": "application/json",
         },
       });
-      if (emailResponse.ok) {
+
+      if (emailResponse.status == 200) {
+        setSendStatus("failed");
         setEmail(false);
         setEmailSend(true);
         setSendStatus("success");
         setTimeout(function () {
           setEmailSend(false);
+          setObj(OBJ_ARR);
+          setAct(0);
         }, 4000);
       } else {
+        setEmailSend(true);
         setEmail(false);
         setSendStatus("failed");
       }
     } catch (error) {
       console.error(error);
+      setEmailSend(true);
+      setEmail(false);
       setSendStatus("failed");
     }
   };
@@ -173,7 +181,7 @@ export default function Estimation({ act, setAct, obj }: any) {
           {print ? "Please wait" : "print"}
         </Button>
         <Button
-          disabled={email}
+          // disabled={email}
           variant="contained"
           color="success"
           sx={{
