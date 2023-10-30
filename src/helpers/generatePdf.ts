@@ -142,7 +142,7 @@ export async function generatePdf(params: any) {
 </div>
 </div>
 </div>
-<div style="width:98%; margin-top: 40px; background-color:#008D78;padding:15px;line-height: normal;">
+<div style="width:98%; margin-top: 25px; background-color:#008D78;padding:15px;line-height: normal;">
   <p style="font-size: 14px;font-weight: 400; color:#FFF"><span style="color:#FFF;font-weight: 600;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
 </div>
 </div>
