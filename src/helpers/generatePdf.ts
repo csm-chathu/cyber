@@ -3,7 +3,10 @@ import moment from "moment";
 import { readPublicLogo } from "../utils/imageRead";
 
 export async function generatePdf(params: any) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+  headless: true,
+  args: ['--enable-gpu', '--no-sandbox', '--disable-setuid-sandbox'],
+});
   const page = await browser.newPage();
   const imageBuffer = readPublicLogo();
   const customContent = `
