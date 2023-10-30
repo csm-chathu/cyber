@@ -44,7 +44,7 @@ const ColorlibStepIconRoot = styled("div")<{
 }>(({ theme, ownerState }) => ({
   backgroundColor: "#ffff",
   zIndex: 1,
-  color: "#22C55E",
+  color: "#58D08F",
   width: 53,
   cursor: "pointer",
   height: 53,
@@ -52,7 +52,7 @@ const ColorlibStepIconRoot = styled("div")<{
   borderRadius: "50%",
   justifyContent: "center",
   alignItems: "center",
-  outline: "2px solid #22C55E",
+  outline: "2px solid #58D08F",
 
   ...(ownerState.active && {
     backgroundColor: theme.palette.primary.main,

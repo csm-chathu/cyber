@@ -59,15 +59,14 @@ export default function Insurance({
             This feature will be available soon.
           </Alert>
         </Collapse>
-        <Grid item xs={12} sx={{ p: 1 }}>
-          <FormControl>
+        <Grid item sx={{ width: "100%" }}>
+          <FormControl sx={{ width: "100%" }}>
             <label>Are you Insured?</label>
             <RadioGroup
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
               value={1}
-              sx={{ pt: 2 }}
             >
               <FormControlLabel
                 value="1"
@@ -84,11 +83,14 @@ export default function Insurance({
                   borderRadius: "8px",
                   ml: 0,
                   width: {
-                    xs: "300px",
-                    sm: "300px",
-                    md: "403px",
-                    lg: "403px",
-                    xl: "403px",
+                    xs: "100%",
+                    sm: "50%",
+                    md: "49%",
+                  },
+                  mr: {
+                    xs: 0,
+                    sm: 0,
+                    md: "1%",
                   },
                   backgroundColor: paymentSelect == 1 ? "#D4FFE4" : "",
                   mt: 1,
@@ -110,20 +112,19 @@ export default function Insurance({
                   backgroundColor: paymentSelect == 2 ? "#D4FFE4" : "",
                   ml: 0,
                   width: {
-                    xs: "300px",
-                    sm: "300px",
-                    md: "403px",
-                    lg: "403px",
-                    xl: "403px",
+                    xs: "100%",
+                    sm: "50%",
+                    md: "50%",
                   },
                   mt: 1,
+                  mr: 0,
                 }}
               />
             </RadioGroup>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sx={{ p: 1 }}>
-          <FormControl>
+        <Grid item xs={12} sx={{ mt: 2 }}>
+          <FormControl sx={{ width: "100%" }}>
             <Grid
               display="flex"
               container
@@ -139,7 +140,6 @@ export default function Insurance({
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
               value={1}
-              sx={{ pt: 2, mt: 1 }}
             >
               <FormControlLabel
                 value="1"
@@ -152,11 +152,14 @@ export default function Insurance({
                   borderRadius: "8px",
                   ml: 0,
                   width: {
-                    xs: "300px",
-                    sm: "300px",
-                    md: "403px",
-                    lg: "403px",
-                    xl: "403px",
+                    xs: "100%",
+                    sm: "50%",
+                    md: "49%",
+                  },
+                  mr: {
+                    xs: 0,
+                    sm: 0,
+                    md: "1%",
                   },
                   backgroundColor: "#D4FFE4",
                   mt: 1,
@@ -173,12 +176,11 @@ export default function Insurance({
                   borderRadius: "8px",
                   ml: 0,
                   mt: 1,
+                  mr: 0,
                   width: {
-                    xs: "300px",
-                    sm: "300px",
-                    md: "403px",
-                    lg: "403px",
-                    xl: "403px",
+                    xs: "100%",
+                    sm: "50%",
+                    md: "50%",
                   },
                 }}
               />

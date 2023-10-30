@@ -2,7 +2,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export default function Container({ children }: any) {
+export default function Container({ children, width = "1016px" }: any) {
   const theme = useTheme();
 
   return (
@@ -22,7 +22,7 @@ export default function Container({ children }: any) {
             lg: 10,
             xl: 10,
           },
-          width: "1016px",
+          width,
           borderRadius: "16px",
           backgroundColor: "#FFF",
           boxShadow: "-6px 4px 74px 0px rgba(123, 123, 123, 0.15)",

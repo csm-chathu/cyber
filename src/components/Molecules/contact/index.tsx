@@ -24,7 +24,10 @@ const schema = yup.object().shape({
   Lname: yup.string().required("Last Name is required"),
   dob: yup.string(),
   email: yup.string().email().required("Email is required"),
-  phone: yup.number().required("Phone number is required"),
+  phone: yup
+    .string()
+    .min(9, "Must be more than 9 digits")
+    .required("Phone number is required"),
   city: yup.string().required("City is required"),
   state: yup.string().required("State is required"),
   zipcode: yup.string().required("Zip Code is required"),

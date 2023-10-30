@@ -26,17 +26,24 @@ export default function Main() {
         obj={obj}
         paymentSelect={paymentSelect}
       />
-      <Container>
-        {act == 0 && (
+
+      {act == 0 && (
+        <Container>
           <Home act={act} setAct={setAct} obj={obj} setObj={setObj} />
-        )}
-        {act == 1 && (
+        </Container>
+      )}
+      {act == 1 && (
+        <Container>
           <Contact act={act} setAct={setAct} obj={obj} setObj={setObj} />
-        )}
-        {act == 2 && (
+        </Container>
+      )}
+      {act == 2 && (
+        <Container>
           <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
-        )}
-        {act == 3 && (
+        </Container>
+      )}
+      {act == 3 && (
+        <Container>
           <Insurance
             act={act}
             setAct={setAct}
@@ -45,11 +52,14 @@ export default function Main() {
             paymentSelect={paymentSelect}
             setPaymentSelect={setPaymentSelect}
           />
-        )}
-        {act == 4 && (
+        </Container>
+      )}
+      {act == 4 && (
+        <Container width="750px">
           <Estimation act={act} setAct={setAct} obj={obj} setObj={setObj} />
-        )}
-      </Container>
+        </Container>
+      )}
+
       {act != 0 && (
         <Box
           sx={{

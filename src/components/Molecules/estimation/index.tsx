@@ -180,7 +180,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
               size={20}
             />
           )}
-          {print ? "Please wait" : "print"}
+          {print ? "wait" : "print"}
         </Button>
         <Button
           // disabled={email}
@@ -211,7 +211,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
                 backgroundColor:
                   sendStatus == "success" ? "#58D08F" : "#d75353",
                 borderRadius: "4px 4px 4px 4px",
-                mt: 4,
+                mt: 2,
               }}
             >
               <Grid
