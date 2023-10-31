@@ -8,6 +8,11 @@ export async function generatePdf(params: any) {
     args: ["--enable-gpu", "--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
+  await page.setViewport({
+    width: 595, // A4 width in pixels (8.27 inches)
+    height: 842, // A4 height in pixels (11.69 inches)
+    deviceScaleFactor: 1,
+  });
   const imageBuffer = readPublicLogo();
   const customContent = `
   <html>
@@ -30,7 +35,7 @@ export async function generatePdf(params: any) {
  <div class="banner">
 
   <div style="width: 60%;height: inherit;">
-  <Image src=${imageBuffer} height="106px" width="361px" style="margin-top: 45px; margin-left: 20px;">
+  <Image src=${imageBuffer} height="106px" width="361px" style="margin-top: 40px; margin-left: 20px;">
 
   </div>
   <div style="width: 40%;height: inherit;color: #000;font-size: 16px;font-weight: 500; padding-top:30px ;text-align:right;padding-right:20px">
@@ -42,7 +47,7 @@ export async function generatePdf(params: any) {
 </div>
 <div style="padding: 10px 30px;">
 <div style="width: 100%;">
-  <p style="color: #008D78;font-size: 35px;font-weight: 500;">Price Estimation</p>
+  <p style="color: #008D78;font-size: 42px;font-weight: 500;">Price Estimation</p>
 </div>
 <div style="width: 100%;display: flex;">
   <div style="width: 40%;">
@@ -133,16 +138,16 @@ export async function generatePdf(params: any) {
 
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
 <div style="width: 50%;">
-  <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;margin-top: 25px;">Total Estimated Patient Responsibility</p>
+  <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;margin-top: 40px;">Total Estimated Patient Responsibility</p>
 </div>
 <div style="width: 50%;">
-  <p style="color:#020202;font-size:25px;font-weight: 400;text-align: right;padding: 5px 10px">${
+  <p style="color:#020202;font-size:32px;font-weight: 400;text-align: right;padding: 5px 10px">${
     params?.service?.value?.Price
   }</p>
 </div>
 </div>
 </div>
-<div style="width:98%; margin-top: 25px; background-color:#008D78;padding:15px;line-height: normal;">
+<div style="width:98%; margin-top:70px; background-color:#008D78;padding:15px;line-height: normal;">
   <p style="font-size: 14px;font-weight: 400; color:#FFF"><span style="color:#FFF;font-weight: 600;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
 </div>
 </div>
@@ -153,7 +158,7 @@ export async function generatePdf(params: any) {
 
   await page.setContent(customContent);
 
-  const pdfBuffer = await page.pdf();
+  const pdfBuffer = await page.pdf({ format: "A4" });
 
   await browser.close();
 

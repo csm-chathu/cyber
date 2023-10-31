@@ -1,6 +1,7 @@
 "use client";
 import { Button, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Home({ act, setAct, obj, setObj }: any) {
   const theme = useTheme();
@@ -60,9 +61,11 @@ export default function Home({ act, setAct, obj, setObj }: any) {
             fontSize: "18px",
             textTransform: "none",
             borderRadius: "8px",
+            border: "none",
+            backgroundColor: theme.palette.secondary.main,
           }}
         >
-          Go back
+          <ArrowBackIcon /> Go Back
         </Button>
         <Button
           variant="contained"

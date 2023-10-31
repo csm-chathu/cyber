@@ -180,7 +180,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
               size={20}
             />
           )}
-          {print ? "wait" : "print"}
+          {print ? "Wait" : "Print"}
         </Button>
         <Button
           // disabled={email}
