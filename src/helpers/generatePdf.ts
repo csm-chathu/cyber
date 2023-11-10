@@ -38,7 +38,7 @@ export async function generatePdf(params: any) {
   <Image src=${imageBuffer} height="106px" width="361px" style="margin-top: 40px; margin-left: 20px;">
 
   </div>
-  <div style="width: 40%;height: inherit;color: #000;font-size: 16px;font-weight: 500; padding-top:30px ;text-align:right;padding-right:20px">
+  <div style="width: 40%;height: inherit;color: #000;font-size: 15px;font-weight: 500; padding-top:30px ;text-align:left;padding-right:20px">
     <p>725 S, Orange Av, West Covina, CA 91790</p>
     <p>626-338-8481</p>
     <p>administration@westcovinamc.com</p>
@@ -51,19 +51,19 @@ export async function generatePdf(params: any) {
 </div>
 <div style="width: 100%;display: flex;">
   <div style="width: 40%;">
-    <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
+    <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.contact?.Fname + " " + params?.contact?.Lname
     }</p>
   </div>
   <div style="width: 40%;">
-    <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Reference Id</label>
+    <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Reference Id</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.ref || "N/A"
     }</p>
   </div>
   <div style="width:25%;">
-    <label style="color: #82889B;font-size: 16px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
+    <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${moment(
       new Date()
     ).format("MMMM Do YYYY")}</p>
