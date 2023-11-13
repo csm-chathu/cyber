@@ -1,10 +1,11 @@
-import { generatePdf } from "../../helpers/generatePdf";
+import { generatePdf, generateContent,generateBodyContent } from "../../helpers/generatePdf";
 
 import formData from "form-data";
 import Mailgun from "mailgun.js";
 
 export default async (req: any, res: any) => {
   const pdfBuffer = await generatePdf(req.body);
+  const contentBuffer = await generateBodyContent(req.body);
   const file = {
     filename: "WCMC" + new Date().getTime() + ".pdf",
     data: pdfBuffer,
@@ -20,8 +21,8 @@ export default async (req: any, res: any) => {
   const messageData = {
     from: process.env.MAIL_GUN_FROM || "",
     to: req.body.contact.email,
-    subject: "WCMC",
-    text: "Please find the PDF attached.",
+    subject: "Estimated Pricing Information for the chosen Service ",
+    html: contentBuffer,
     attachment,
   };
   client.messages

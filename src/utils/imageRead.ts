@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+
 export function readPublicLogo() {
   let imageFileName = process.env?.LOGO_PDF || "";
   const publicDir = path.join(process.cwd(), "public");
