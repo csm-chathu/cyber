@@ -56,19 +56,19 @@ export function generateBodyContent( params:any ){
                                 <table cellspacing="10" style="vertical-align: middle;">
                                     <tbody style="font-size: 16px;">
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/address.svg"
+                                            <td><img src="https://price-est.elifeamerica.com/address.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;">725 S, Orange Av, West
                                                 Covina, CA 91790</td>
                                         </tr>
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/phone.svg"
+                                            <td><img src="https://price-est.elifeamerica.com/phone.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;"><a style="color: #000;"
                                                     href="tel:+16263388481">626-338-8481</a></td>
                                         </tr>
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/email.svg"
+                                            <td><img src="https://price-est.elifeamerica.com/email.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;"><a style="color: #000;"
                                                     href="mailto:administration@westcovinamc.com">administration@westcovinamc.com</a>
@@ -92,7 +92,7 @@ export function generateBodyContent( params:any ){
                                     href="https://westcovinamc.com/index.html" target="_blank">Visit our website</a>
                             </td>
                             <td
-                                style="width:260px; height: 168px;border-radius:0 14px 14px 0; overflow: hidden;  background-image: url('https://github.com/Ragavarman/signaturewcmc/blob/main/hospital.png?raw=true'); background-size: 265px 168px; background-position: right;">
+                                style="width:260px; height: 168px;border-radius:0 14px 14px 0; overflow: hidden;  background-image: url('https://price-est.elifeamerica.com/hospital.png'); background-size: 265px 168px; background-position: right;">
                             </td>
                         </tr>
                     </tbody>
