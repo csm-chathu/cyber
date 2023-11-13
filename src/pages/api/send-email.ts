@@ -5,7 +5,7 @@ import Mailgun from "mailgun.js";
 
 export default async (req: any, res: any) => {
   const pdfBuffer = await generatePdf(req.body);
-  const contentBuffer = await generateBodyContent(req.body);
+  const contentBuffer = await generateBodyContent(req);
   const file = {
     filename: "WCMC" + new Date().getTime() + ".pdf",
     data: pdfBuffer,

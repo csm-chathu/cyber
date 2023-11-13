@@ -2,9 +2,9 @@ import puppeteer from "puppeteer";
 import moment from "moment";
 import { readPublicLogo  } from "../utils/imageRead";
 
-export function generateBodyContent( params:any ){
-  return `
-  <html>
+export function generateBodyContent(req:any){
+  let orgin=req?.headers?.origin || 'https://price-est.elifeamerica.com';
+  return ` <html>
 <head>
     <style>
         @media print {
@@ -50,25 +50,25 @@ export function generateBodyContent( params:any ){
                         style="vertical-align:-webkit-baseline-middle; font-size:medium; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; letter-spacing: -0.1px;">
                         <tr>
                             <td>
-                                <img style="width: 260px; max-width: 260px; height: 85px; max-height: 85px;" alt="Logo" src="https://price-est.elifeamerica.com/image1.png" align="center" width="180" height="85" alt="">
+                                <img style="width: 260px; max-width: 260px; height: 85px; max-height: 85px;" alt="Logo" src="${orgin}/image1.png" align="center" width="180" height="85" alt="">
                             </td>
                             <td style="padding-left: 38px;">
                                 <table cellspacing="10" style="vertical-align: middle;">
                                     <tbody style="font-size: 16px;">
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/address.png"
+                                            <td><img src="${orgin}/address.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;">725 S, Orange Av, West
                                                 Covina, CA 91790</td>
                                         </tr>
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/phone.png"
+                                            <td><img src="${orgin}/phone.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;"><a style="color: #000;"
                                                     href="tel:+16263388481">626-338-8481</a></td>
                                         </tr>
                                         <tr>
-                                            <td><img src="https://price-est.elifeamerica.com/email.png"
+                                            <td><img src="${orgin}/email.png"
                                                     alt="icon"></td>
                                             <td style="padding-bottom: 4px; padding-left: 10px;"><a style="color: #000;"
                                                     href="mailto:administration@westcovinamc.com">administration@westcovinamc.com</a>
@@ -92,7 +92,7 @@ export function generateBodyContent( params:any ){
                                     href="https://westcovinamc.com/index.html" target="_blank">Visit our website</a>
                             </td>
                             <td
-                                style="width:260px; height: 168px;border-radius:0 14px 14px 0; overflow: hidden;  background-image: url('https://price-est.elifeamerica.com/hospital.png'); background-size: 265px 168px; background-position: right;">
+                                style="width:260px; height: 168px;border-radius:0 14px 14px 0; overflow: hidden;  background-image: url('${orgin}/hospital.png'); background-size: 265px 168px; background-position: right;">
                             </td>
                         </tr>
                     </tbody>
