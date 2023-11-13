@@ -1,106 +1,642 @@
 export const PRICELIST = [
   {
     "No": 1,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93880,
-    "Service Description": "Ultrasound scanning of blood flow (outside the brain) on both sides of head and neck",
-    "Price": "$331.50",
+    "Service Category": "Audiology",
+    "Service Code": 92611,
+    "Service Description": "Fluoroscopic and video recorded motion evaluation of swallowing function",
+    "Price": "$355.13",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Cardiovascular",
+    "Service Code": 93005,
+    "Service Description": "Routine electrocardiogram (EKG) with tracing using at least 12 leads",
+    "Price": "$130.73",
     "Remarks": ""
   },
   {
     "No": 2,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93922,
-    "Service Description": "Ultrasound study of arteries of both arms and legs, limited",
-    "Price": "$245.48",
+    "Service Category": "Cardiovascular",
+    "Service Code": 93017,
+    "Service Description": "Exercise or drug-induced heart and blood vessel stress test with EKG tracing and monitoring",
+    "Price": "$480.08",
     "Remarks": ""
   },
   {
     "No": 3,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93923,
-    "Service Description": "Ultrasound study of arteries of both arms and legs, complete",
-    "Price": "$57.46",
+    "Service Category": "Cardiovascular",
+    "Service Code": 93306,
+    "Service Description": "Ultrasound examination of heart including color-depicted blood flow rate, direction, and valve function",
+    "Price": "$1,044.82",
     "Remarks": ""
   },
   {
     "No": 4,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93925,
-    "Service Description": "Ultrasound study of arteries and arterial grafts of both legs",
-    "Price": "$406.30",
+    "Service Category": "Cardiovascular",
+    "Service Code": 93307,
+    "Service Description": "Chest ultrasound examination of heart",
+    "Price": "$604.69",
     "Remarks": ""
   },
   {
     "No": 5,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93926,
-    "Service Description": "Ultrasound study of arteries and arterial grafts of one leg or limited",
-    "Price": "$350.88",
+    "Service Category": "Cardiovascular",
+    "Service Code": 93350,
+    "Service Description": "Ultrasound examination of the heart performed during rest, exercise, and/or drug-induced stress with interpretation and report",
+    "Price": "$844.22",
     "Remarks": ""
   },
   {
     "No": 6,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93930,
-    "Service Description": "Ultrasound study of arteries and arterial grafts of both arms",
-    "Price": "$405.96",
+    "Service Category": "Cardiovascular",
+    "Service Code": 93503,
+    "Service Description": "Insertion of catheter into left heart including imaging interpretation and supervision and injection",
+    "Price": "$3,933.80",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Inpatient",
+    "Service Code": 217,
+    "Service Description": "CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W CARD CATH W MCC Non-ST elevation (NSTEMI) myocardial infarction",
+    "Price": "$64,843.65",
+    "Remarks": ""
+  },
+  {
+    "No": 2,
+    "Service Category": "Inpatient",
+    "Service Code": 217,
+    "Service Description": "Replacement of left lower heart chamber valve using artificial valve on heart-lung machine",
+    "Price": "$95,440.83",
+    "Remarks": ""
+  },
+  {
+    "No": 3,
+    "Service Category": "Inpatient",
+    "Service Code": 460,
+    "Service Description": "Spinal fusion except cervical w/o MCC Fusion of Lumbar Vertebral Joint with Synthetic Substitute, Posterior Approach, Posterior Column, Op Spondylolysis, site unspecified",
+    "Price": "$24,613.33",
+    "Remarks": ""
+  },
+  {
+    "No": 4,
+    "Service Category": "Inpatient",
+    "Service Code": 470,
+    "Service Description": "Major joint replacement or reattachment of lower extremity w/o MCC Replacement of Right Knee Joint with Autologous Tissue Substitute, Open Approach Osteoarthritis of knee, unspecified",
+    "Price": "$18,122.75",
+    "Remarks": ""
+  },
+  {
+    "No": 5,
+    "Service Category": "Inpatient",
+    "Service Code": 473,
+    "Service Description": "Cervical spinal fusion w/o CC/MCC Fusion of Cervical Vertebral Joint with Autologous Tissue Substitute, Anterior Approach, Anterior Co Spinal stenosis, cervical region",
+    "Price": "$16,621.30",
+    "Remarks": ""
+  },
+  {
+    "No": 6,
+    "Service Category": "Inpatient",
+    "Service Code": 775,
+    "Service Description": "Obstetrical pre- and postpartum care and vaginal delivery",
+    "Price": "$5,000.00",
     "Remarks": ""
   },
   {
     "No": 7,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93931,
-    "Service Description": "Ultrasound study of arteries and arterial grafts of one arm or limited",
-    "Price": "$350.88",
+    "Service Category": "Inpatient",
+    "Service Code": 806,
+    "Service Description": "Vaginal delivery after prior cesarean delivery",
+    "Price": "$5,000.00",
     "Remarks": ""
   },
   {
     "No": 8,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93970,
-    "Service Description": "Ultrasound scan of veins of both arms or legs with pressure and movement",
-    "Price": "$410.38",
+    "Service Category": "Inpatient",
+    "Service Code": "O34.29",
+    "Service Description": "Uterine & adnexa proc for non-malignancy w/o CC/MCC Resection of Cervix, Percutaneous Endoscopic Approach Leiomyoma of uterus, unspecified",
+    "Price": "$9,000.00",
     "Remarks": ""
   },
   {
     "No": 9,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93971,
-    "Service Description": "Ultrasound scan of veins of one arm or leg with pressure and movement",
-    "Price": "$350.88",
+    "Service Category": "Inpatient",
+    "Service Code": "O48.0",
+    "Service Description": "Cesarian delivery with pre- and post-delivery care",
+    "Price": "$9,000.00",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Neurology & Sleep",
+    "Service Code": 95810,
+    "Service Description": "Sleep monitoring of patient (6 years or older) in sleep lab",
+    "Price": "$1,089.36",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Other",
+    "Service Code": 90834,
+    "Service Description": "Psychotherapy, 45 minutes with patient and/or family member",
+    "Price": "$99.11",
+    "Remarks": ""
+  },
+  {
+    "No": 2,
+    "Service Category": "Other",
+    "Service Code": 90847,
+    "Service Description": "Family psychotherapy including patient",
+    "Price": "$104.04",
+    "Remarks": ""
+  },
+  {
+    "No": 3,
+    "Service Category": "Other",
+    "Service Code": 90853,
+    "Service Description": "Group psychotherapy",
+    "Price": "$140.76",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 19120,
+    "Service Description": "Removal of 1 or more breast growth, open procedure",
+    "Price": "$4,282.12",
+    "Remarks": ""
+  },
+  {
+    "No": 2,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 20206,
+    "Service Description": "Needle biopsy of muscle, accessed through the skin",
+    "Price": "$3,136.40",
+    "Remarks": ""
+  },
+  {
+    "No": 3,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 20610,
+    "Service Description": "Aspiration and/or injection of large joint or joint capsule",
+    "Price": "$899.12",
+    "Remarks": ""
+  },
+  {
+    "No": 4,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 22551,
+    "Service Description": "Fusion of spine bones with removal of disc at upper spinal column, anterior approach",
+    "Price": "$16,492.82",
+    "Remarks": ""
+  },
+  {
+    "No": 5,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 22853,
+    "Service Description": "Insertion of device into intervertebral disc space of spine and fusion of vertebrae",
+    "Price": "$12,217.94",
+    "Remarks": ""
+  },
+  {
+    "No": 6,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 27130,
+    "Service Description": "Replacement of thigh bone and hip joint prosthesis",
+    "Price": "$12,135.11",
+    "Remarks": ""
+  },
+  {
+    "No": 7,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 29826,
+    "Service Description": "Shoulder arthroscopy/surgery",
+    "Price": "$6,033.58",
+    "Remarks": ""
+  },
+  {
+    "No": 8,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 29827,
+    "Service Description": "Repair of shoulder rotator cuff using an endoscope",
+    "Price": "$6,059.48",
+    "Remarks": ""
+  },
+  {
+    "No": 9,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 29828,
+    "Service Description": "Release of shoulder biceps tendon using an endoscope",
+    "Price": "$6,492.63",
     "Remarks": ""
   },
   {
     "No": 10,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93975,
-    "Service Description": "Ultrasound scan of abdominal, pelvic, and/or scrotal blood flow",
-    "Price": "$466.65",
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 29880,
+    "Service Description": "Removal of both knee cartilages using an endoscope",
+    "Price": "$3,250.00",
     "Remarks": ""
   },
   {
     "No": 11,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93976,
-    "Service Description": "Ultrasound limited scan of abdominal, pelvic, and/or scrotal blood flow",
-    "Price": "$417.18",
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 29881,
+    "Service Description": "Knee arthroscopy/surgery",
+    "Price": "$3,461.64",
     "Remarks": ""
   },
   {
     "No": 12,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93978,
-    "Service Description": "Ultrasound scan of vena cava or groin graft or vessel blood flow",
-    "Price": "$466.65",
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 31253,
+    "Service Description": "Complete examination of nose and sinuses using an endoscope",
+    "Price": "$6,922.93",
     "Remarks": ""
   },
   {
     "No": 13,
-    "Service Category": "Vascular Studies",
-    "Service Code": 93990,
-    "Service Description": "Ultrasound of dialysis access",
-    "Price": "$226.44",
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 37243,
+    "Service Description": "Occlusion of tumors or obstructed blood vessel with radiological supervision and interpretation, roadmapping, and imaging guidance",
+    "Price": "$15,415.79",
+    "Remarks": ""
+  },
+  {
+    "No": 14,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 42820,
+    "Service Description": "Remove tonsils and adenoids",
+    "Price": "$3,679.52",
+    "Remarks": ""
+  },
+  {
+    "No": 15,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 42821,
+    "Service Description": "Removal of tonsils and adenoid glands patient age 12 or over",
+    "Price": "$4,245.87",
+    "Remarks": ""
+  },
+  {
+    "No": 16,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 42826,
+    "Service Description": "Removal of tonsils patient age 12 or over",
+    "Price": "$3,982.15",
+    "Remarks": ""
+  },
+  {
+    "No": 17,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 42830,
+    "Service Description": "Removal of adenoids patient younger than age 12",
+    "Price": "$3,337.35",
+    "Remarks": ""
+  },
+  {
+    "No": 18,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43235,
+    "Service Description": "Diagnostic examination of esophagus, stomach, and/or upper small bowel using an endoscope",
+    "Price": "$3,053.77",
+    "Remarks": ""
+  },
+  {
+    "No": 19,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43237,
+    "Service Description": "Ultrasound examination of esophagus, stomach, and/or upper small bowel using an endoscope",
+    "Price": "$2,814.37",
+    "Remarks": ""
+  },
+  {
+    "No": 20,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43238,
+    "Service Description": "Ultrasound guided needle aspiration or biopsies of esophagus using an endoscope",
+    "Price": "$4,292.22",
+    "Remarks": ""
+  },
+  {
+    "No": 21,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43239,
+    "Service Description": "Biopsy of the esophagus, stomach, and/or upper small bowel using an endoscope",
+    "Price": "$2,672.35",
+    "Remarks": ""
+  },
+  {
+    "No": 22,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43244,
+    "Service Description": "Tying of dilated veins of stomach and/or esophagus using an endoscope",
+    "Price": "$2,409.86",
+    "Remarks": ""
+  },
+  {
+    "No": 23,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 43247,
+    "Service Description": "Removal of foreign bodies of esophagus, stomach, and/or upper small bowel using an endoscope",
+    "Price": "$3,368.19",
+    "Remarks": ""
+  },
+  {
+    "No": 24,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 44970,
+    "Service Description": "Removal of appendix using an endoscope",
+    "Price": "$11,991.92",
+    "Remarks": ""
+  },
+  {
+    "No": 25,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 45378,
+    "Service Description": "Diagnostic colonoscopy",
+    "Price": "$1,809.54",
+    "Remarks": ""
+  },
+  {
+    "No": 26,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 45380,
+    "Service Description": "Colonoscopy and biopsy",
+    "Price": "$2,411.64",
+    "Remarks": ""
+  },
+  {
+    "No": 27,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 45381,
+    "Service Description": "Injections of large bowel using an endoscope",
+    "Price": "$3,220.69",
+    "Remarks": ""
+  },
+  {
+    "No": 28,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 45385,
+    "Service Description": "Removal of polyps or growths of large bowel using an endoscope",
+    "Price": "$2,333.47",
+    "Remarks": ""
+  },
+  {
+    "No": 29,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 45391,
+    "Service Description": "Ultrasound examination of lower large bowel using an endoscope",
+    "Price": "$2,221.38",
+    "Remarks": ""
+  },
+  {
+    "No": 30,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 47000,
+    "Service Description": "Needle biopsy of liver, accessed through the skin",
+    "Price": "$3,519.51",
+    "Remarks": ""
+  },
+  {
+    "No": 31,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 47562,
+    "Service Description": "Removal of gallbladder using an endoscope",
+    "Price": "$7,213.85",
+    "Remarks": ""
+  },
+  {
+    "No": 32,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 49083,
+    "Service Description": "Drainage of fluid from abdominal cavity using imaging guidance",
+    "Price": "$2,745.34",
+    "Remarks": ""
+  },
+  {
+    "No": 33,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 49505,
+    "Service Description": "Repair of groin hernia patient age 5 years or older",
+    "Price": "$4,714.48",
+    "Remarks": ""
+  },
+  {
+    "No": 34,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 49650,
+    "Service Description": "Repair of groin hernia using an endoscope",
+    "Price": "$10,816.78",
+    "Remarks": ""
+  },
+  {
+    "No": 35,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 55700,
+    "Service Description": "Biopsy of prostate gland",
+    "Price": "$3,604.84",
+    "Remarks": ""
+  },
+  {
+    "No": 36,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 55866,
+    "Service Description": "Surgical removal of prostate and surrounding lymph nodes using an endoscope",
+    "Price": "$28,620.94",
+    "Remarks": ""
+  },
+  {
+    "No": 37,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 60500,
+    "Service Description": "Removal or exploration of parathyroid glands",
+    "Price": "$12,008.15",
+    "Remarks": ""
+  },
+  {
+    "No": 38,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 62270,
+    "Service Description": "Spinal tap for diagnosis",
+    "Price": "$4,729.92",
+    "Remarks": ""
+  },
+  {
+    "No": 39,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 62322,
+    "Service Description": "Injection of substance into spinal canal of lower back or sacrum",
+    "Price": "$1,394.13",
+    "Remarks": ""
+  },
+  {
+    "No": 40,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 62323,
+    "Service Description": "Injection of substance into spinal canal of lower back or sacrum using imaging guidance",
+    "Price": "$1,598.15",
+    "Remarks": ""
+  },
+  {
+    "No": 41,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 64483,
+    "Service Description": "Injections of anesthetic and/or steroid drug into lower or sacral spine nerve root using imaging guidance",
+    "Price": "$1,469.85",
+    "Remarks": ""
+  },
+  {
+    "No": 42,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 66821,
+    "Service Description": "Removal of recurring cataract in lens capsule using laser",
+    "Price": "$691.82",
+    "Remarks": ""
+  },
+  {
+    "No": 43,
+    "Service Category": "Outpatient Surgery",
+    "Service Code": 66984,
+    "Service Description": "Removal of cataract with insertion of lens",
+    "Price": "$2,477.36",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Outpatient Therapy",
+    "Service Code": 97110,
+    "Service Description": "Therapeutic exercise to develop strength, endurance, range of motion, and flexibility, each 15 minutes",
+    "Price": "$49.30",
+    "Remarks": ""
+  },
+  {
+    "No": 1,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 80048,
+    "Service Description": "Blood test, basic group of blood chemicals",
+    "Price": "$626.50",
+    "Remarks": ""
+  },
+  {
+    "No": 2,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 80053,
+    "Service Description": "Blood test, comprehensive group of blood chemicals",
+    "Price": "$761.50",
+    "Remarks": ""
+  },
+  {
+    "No": 3,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 80061,
+    "Service Description": "Blood test, lipids (cholesterol and triglycerides)",
+    "Price": "$347.00",
+    "Remarks": ""
+  },
+  {
+    "No": 4,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 80069,
+    "Service Description": "Kidney function blood test panel",
+    "Price": "$567.50",
+    "Remarks": ""
+  },
+  {
+    "No": 5,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 80076,
+    "Service Description": "Liver function blood test panel",
+    "Price": "$318.00",
+    "Remarks": ""
+  },
+  {
+    "No": 6,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 81000,
+    "Service Description": "Manual urinalysis test with examination using microscope nonauto",
+    "Price": "$23.00",
+    "Remarks": ""
+  },
+  {
+    "No": 7,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 81001,
+    "Service Description": "Manual urinalysis test with examination using microscope auto",
+    "Price": "$148.00",
+    "Remarks": ""
+  },
+  {
+    "No": 8,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 81002,
+    "Service Description": "Urinalysis, manual test",
+    "Price": "$28.50",
+    "Remarks": ""
+  },
+  {
+    "No": 9,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 81003,
+    "Service Description": "Automated urinalysis test",
+    "Price": "$31.00",
+    "Remarks": ""
+  },
+  {
+    "No": 10,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 84153,
+    "Service Description": "PSA (prostate specific antigen) measurement",
+    "Price": "$257.50",
+    "Remarks": ""
+  },
+  {
+    "No": 11,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 84154,
+    "Service Description": "PSA (prostate specific antigen) measurement",
+    "Price": "$5.00",
+    "Remarks": ""
+  },
+  {
+    "No": 12,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 84443,
+    "Service Description": "Blood test, thyroid stimulating hormone (TSH)",
+    "Price": "$230.00",
+    "Remarks": ""
+  },
+  {
+    "No": 13,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 85025,
+    "Service Description": "Complete blood cell count (red cells, white blood cell, platelets), automated test w/auto differential white blood count",
+    "Price": "$187.50",
+    "Remarks": ""
+  },
+  {
+    "No": 14,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 85027,
+    "Service Description": "Complete blood cell count (red cells, white blood cell, platelets), automated test",
+    "Price": "$127.00",
+    "Remarks": ""
+  },
+  {
+    "No": 15,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 85610,
+    "Service Description": "Blood test, clotting time",
+    "Price": "$108.00",
+    "Remarks": ""
+  },
+  {
+    "No": 16,
+    "Service Category": "Pathology & Laboratory",
+    "Service Code": 85730,
+    "Service Description": "Coagulation assessment blood test",
+    "Price": "$159.00",
     "Remarks": ""
   },
   {
@@ -1801,642 +2337,106 @@ export const PRICELIST = [
   },
   {
     "No": 1,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 80048,
-    "Service Description": "Blood test, basic group of blood chemicals",
-    "Price": "$626.50",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93880,
+    "Service Description": "Ultrasound scanning of blood flow (outside the brain) on both sides of head and neck",
+    "Price": "$331.50",
     "Remarks": ""
   },
   {
     "No": 2,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 80053,
-    "Service Description": "Blood test, comprehensive group of blood chemicals",
-    "Price": "$761.50",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93922,
+    "Service Description": "Ultrasound study of arteries of both arms and legs, limited",
+    "Price": "$245.48",
     "Remarks": ""
   },
   {
     "No": 3,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 80061,
-    "Service Description": "Blood test, lipids (cholesterol and triglycerides)",
-    "Price": "$347.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93923,
+    "Service Description": "Ultrasound study of arteries of both arms and legs, complete",
+    "Price": "$57.46",
     "Remarks": ""
   },
   {
     "No": 4,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 80069,
-    "Service Description": "Kidney function blood test panel",
-    "Price": "$567.50",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93925,
+    "Service Description": "Ultrasound study of arteries and arterial grafts of both legs",
+    "Price": "$406.30",
     "Remarks": ""
   },
   {
     "No": 5,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 80076,
-    "Service Description": "Liver function blood test panel",
-    "Price": "$318.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93926,
+    "Service Description": "Ultrasound study of arteries and arterial grafts of one leg or limited",
+    "Price": "$350.88",
     "Remarks": ""
   },
   {
     "No": 6,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 81000,
-    "Service Description": "Manual urinalysis test with examination using microscope nonauto",
-    "Price": "$23.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93930,
+    "Service Description": "Ultrasound study of arteries and arterial grafts of both arms",
+    "Price": "$405.96",
     "Remarks": ""
   },
   {
     "No": 7,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 81001,
-    "Service Description": "Manual urinalysis test with examination using microscope auto",
-    "Price": "$148.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93931,
+    "Service Description": "Ultrasound study of arteries and arterial grafts of one arm or limited",
+    "Price": "$350.88",
     "Remarks": ""
   },
   {
     "No": 8,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 81002,
-    "Service Description": "Urinalysis, manual test",
-    "Price": "$28.50",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93970,
+    "Service Description": "Ultrasound scan of veins of both arms or legs with pressure and movement",
+    "Price": "$410.38",
     "Remarks": ""
   },
   {
     "No": 9,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 81003,
-    "Service Description": "Automated urinalysis test",
-    "Price": "$31.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93971,
+    "Service Description": "Ultrasound scan of veins of one arm or leg with pressure and movement",
+    "Price": "$350.88",
     "Remarks": ""
   },
   {
     "No": 10,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 84153,
-    "Service Description": "PSA (prostate specific antigen) measurement",
-    "Price": "$257.50",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93975,
+    "Service Description": "Ultrasound scan of abdominal, pelvic, and/or scrotal blood flow",
+    "Price": "$466.65",
     "Remarks": ""
   },
   {
     "No": 11,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 84154,
-    "Service Description": "PSA (prostate specific antigen) measurement",
-    "Price": "$5.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93976,
+    "Service Description": "Ultrasound limited scan of abdominal, pelvic, and/or scrotal blood flow",
+    "Price": "$417.18",
     "Remarks": ""
   },
   {
     "No": 12,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 84443,
-    "Service Description": "Blood test, thyroid stimulating hormone (TSH)",
-    "Price": "$230.00",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93978,
+    "Service Description": "Ultrasound scan of vena cava or groin graft or vessel blood flow",
+    "Price": "$466.65",
     "Remarks": ""
   },
   {
     "No": 13,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 85025,
-    "Service Description": "Complete blood cell count (red cells, white blood cell, platelets), automated test w/auto differential white blood count",
-    "Price": "$187.50",
-    "Remarks": ""
-  },
-  {
-    "No": 14,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 85027,
-    "Service Description": "Complete blood cell count (red cells, white blood cell, platelets), automated test",
-    "Price": "$127.00",
-    "Remarks": ""
-  },
-  {
-    "No": 15,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 85610,
-    "Service Description": "Blood test, clotting time",
-    "Price": "$108.00",
-    "Remarks": ""
-  },
-  {
-    "No": 16,
-    "Service Category": "Pathology & Laboratory",
-    "Service Code": 85730,
-    "Service Description": "Coagulation assessment blood test",
-    "Price": "$159.00",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "A",
-    "Service Code": 97110,
-    "Service Description": "Therapeutic exercise to develop strength, endurance, range of motion, and flexibility, each 15 minutes",
-    "Price": "$49.30",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 19120,
-    "Service Description": "Removal of 1 or more breast growth, open procedure",
-    "Price": "$4,282.12",
-    "Remarks": ""
-  },
-  {
-    "No": 2,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 20206,
-    "Service Description": "Needle biopsy of muscle, accessed through the skin",
-    "Price": "$3,136.40",
-    "Remarks": ""
-  },
-  {
-    "No": 3,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 20610,
-    "Service Description": "Aspiration and/or injection of large joint or joint capsule",
-    "Price": "$899.12",
-    "Remarks": ""
-  },
-  {
-    "No": 4,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 22551,
-    "Service Description": "Fusion of spine bones with removal of disc at upper spinal column, anterior approach",
-    "Price": "$16,492.82",
-    "Remarks": ""
-  },
-  {
-    "No": 5,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 22853,
-    "Service Description": "Insertion of device into intervertebral disc space of spine and fusion of vertebrae",
-    "Price": "$12,217.94",
-    "Remarks": ""
-  },
-  {
-    "No": 6,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 27130,
-    "Service Description": "Replacement of thigh bone and hip joint prosthesis",
-    "Price": "$12,135.11",
-    "Remarks": ""
-  },
-  {
-    "No": 7,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 29826,
-    "Service Description": "Shoulder arthroscopy/surgery",
-    "Price": "$6,033.58",
-    "Remarks": ""
-  },
-  {
-    "No": 8,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 29827,
-    "Service Description": "Repair of shoulder rotator cuff using an endoscope",
-    "Price": "$6,059.48",
-    "Remarks": ""
-  },
-  {
-    "No": 9,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 29828,
-    "Service Description": "Release of shoulder biceps tendon using an endoscope",
-    "Price": "$6,492.63",
-    "Remarks": ""
-  },
-  {
-    "No": 10,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 29880,
-    "Service Description": "Removal of both knee cartilages using an endoscope",
-    "Price": "$3,250.00",
-    "Remarks": ""
-  },
-  {
-    "No": 11,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 29881,
-    "Service Description": "Knee arthroscopy/surgery",
-    "Price": "$3,461.64",
-    "Remarks": ""
-  },
-  {
-    "No": 12,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 31253,
-    "Service Description": "Complete examination of nose and sinuses using an endoscope",
-    "Price": "$6,922.93",
-    "Remarks": ""
-  },
-  {
-    "No": 13,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 37243,
-    "Service Description": "Occlusion of tumors or obstructed blood vessel with radiological supervision and interpretation, roadmapping, and imaging guidance",
-    "Price": "$15,415.79",
-    "Remarks": ""
-  },
-  {
-    "No": 14,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 42820,
-    "Service Description": "Remove tonsils and adenoids",
-    "Price": "$3,679.52",
-    "Remarks": ""
-  },
-  {
-    "No": 15,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 42821,
-    "Service Description": "Removal of tonsils and adenoid glands patient age 12 or over",
-    "Price": "$4,245.87",
-    "Remarks": ""
-  },
-  {
-    "No": 16,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 42826,
-    "Service Description": "Removal of tonsils patient age 12 or over",
-    "Price": "$3,982.15",
-    "Remarks": ""
-  },
-  {
-    "No": 17,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 42830,
-    "Service Description": "Removal of adenoids patient younger than age 12",
-    "Price": "$3,337.35",
-    "Remarks": ""
-  },
-  {
-    "No": 18,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43235,
-    "Service Description": "Diagnostic examination of esophagus, stomach, and/or upper small bowel using an endoscope",
-    "Price": "$3,053.77",
-    "Remarks": ""
-  },
-  {
-    "No": 19,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43237,
-    "Service Description": "Ultrasound examination of esophagus, stomach, and/or upper small bowel using an endoscope",
-    "Price": "$2,814.37",
-    "Remarks": ""
-  },
-  {
-    "No": 20,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43238,
-    "Service Description": "Ultrasound guided needle aspiration or biopsies of esophagus using an endoscope",
-    "Price": "$4,292.22",
-    "Remarks": ""
-  },
-  {
-    "No": 21,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43239,
-    "Service Description": "Biopsy of the esophagus, stomach, and/or upper small bowel using an endoscope",
-    "Price": "$2,672.35",
-    "Remarks": ""
-  },
-  {
-    "No": 22,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43244,
-    "Service Description": "Tying of dilated veins of stomach and/or esophagus using an endoscope",
-    "Price": "$2,409.86",
-    "Remarks": ""
-  },
-  {
-    "No": 23,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 43247,
-    "Service Description": "Removal of foreign bodies of esophagus, stomach, and/or upper small bowel using an endoscope",
-    "Price": "$3,368.19",
-    "Remarks": ""
-  },
-  {
-    "No": 24,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 44970,
-    "Service Description": "Removal of appendix using an endoscope",
-    "Price": "$11,991.92",
-    "Remarks": ""
-  },
-  {
-    "No": 25,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 45378,
-    "Service Description": "Diagnostic colonoscopy",
-    "Price": "$1,809.54",
-    "Remarks": ""
-  },
-  {
-    "No": 26,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 45380,
-    "Service Description": "Colonoscopy and biopsy",
-    "Price": "$2,411.64",
-    "Remarks": ""
-  },
-  {
-    "No": 27,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 45381,
-    "Service Description": "Injections of large bowel using an endoscope",
-    "Price": "$3,220.69",
-    "Remarks": ""
-  },
-  {
-    "No": 28,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 45385,
-    "Service Description": "Removal of polyps or growths of large bowel using an endoscope",
-    "Price": "$2,333.47",
-    "Remarks": ""
-  },
-  {
-    "No": 29,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 45391,
-    "Service Description": "Ultrasound examination of lower large bowel using an endoscope",
-    "Price": "$2,221.38",
-    "Remarks": ""
-  },
-  {
-    "No": 30,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 47000,
-    "Service Description": "Needle biopsy of liver, accessed through the skin",
-    "Price": "$3,519.51",
-    "Remarks": ""
-  },
-  {
-    "No": 31,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 47562,
-    "Service Description": "Removal of gallbladder using an endoscope",
-    "Price": "$7,213.85",
-    "Remarks": ""
-  },
-  {
-    "No": 32,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 49083,
-    "Service Description": "Drainage of fluid from abdominal cavity using imaging guidance",
-    "Price": "$2,745.34",
-    "Remarks": ""
-  },
-  {
-    "No": 33,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 49505,
-    "Service Description": "Repair of groin hernia patient age 5 years or older",
-    "Price": "$4,714.48",
-    "Remarks": ""
-  },
-  {
-    "No": 34,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 49650,
-    "Service Description": "Repair of groin hernia using an endoscope",
-    "Price": "$10,816.78",
-    "Remarks": ""
-  },
-  {
-    "No": 35,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 55700,
-    "Service Description": "Biopsy of prostate gland",
-    "Price": "$3,604.84",
-    "Remarks": ""
-  },
-  {
-    "No": 36,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 55866,
-    "Service Description": "Surgical removal of prostate and surrounding lymph nodes using an endoscope",
-    "Price": "$28,620.94",
-    "Remarks": ""
-  },
-  {
-    "No": 37,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 60500,
-    "Service Description": "Removal or exploration of parathyroid glands",
-    "Price": "$12,008.15",
-    "Remarks": ""
-  },
-  {
-    "No": 38,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 62270,
-    "Service Description": "Spinal tap for diagnosis",
-    "Price": "$4,729.92",
-    "Remarks": ""
-  },
-  {
-    "No": 39,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 62322,
-    "Service Description": "Injection of substance into spinal canal of lower back or sacrum",
-    "Price": "$1,394.13",
-    "Remarks": ""
-  },
-  {
-    "No": 40,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 62323,
-    "Service Description": "Injection of substance into spinal canal of lower back or sacrum using imaging guidance",
-    "Price": "$1,598.15",
-    "Remarks": ""
-  },
-  {
-    "No": 41,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 64483,
-    "Service Description": "Injections of anesthetic and/or steroid drug into lower or sacral spine nerve root using imaging guidance",
-    "Price": "$1,469.85",
-    "Remarks": ""
-  },
-  {
-    "No": 42,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 66821,
-    "Service Description": "Removal of recurring cataract in lens capsule using laser",
-    "Price": "$691.82",
-    "Remarks": ""
-  },
-  {
-    "No": 43,
-    "Service Category": "Outpatient Surgery",
-    "Service Code": 66984,
-    "Service Description": "Removal of cataract with insertion of lens",
-    "Price": "$2,477.36",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Other",
-    "Service Code": 90834,
-    "Service Description": "Psychotherapy, 45 minutes with patient and/or family member",
-    "Price": "$99.11",
-    "Remarks": ""
-  },
-  {
-    "No": 2,
-    "Service Category": "Other",
-    "Service Code": 90847,
-    "Service Description": "Family psychotherapy including patient",
-    "Price": "$104.04",
-    "Remarks": ""
-  },
-  {
-    "No": 3,
-    "Service Category": "Other",
-    "Service Code": 90853,
-    "Service Description": "Group psychotherapy",
-    "Price": "$140.76",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Neurology & Sleep",
-    "Service Code": 95810,
-    "Service Description": "Sleep monitoring of patient (6 years or older) in sleep lab",
-    "Price": "$1,089.36",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Inpatient",
-    "Service Code": 217,
-    "Service Description": "CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W CARD CATH W MCC Non-ST elevation (NSTEMI) myocardial infarction",
-    "Price": "$64,843.65",
-    "Remarks": ""
-  },
-  {
-    "No": 2,
-    "Service Category": "Inpatient",
-    "Service Code": 217,
-    "Service Description": "Replacement of left lower heart chamber valve using artificial valve on heart-lung machine",
-    "Price": "$95,440.83",
-    "Remarks": ""
-  },
-  {
-    "No": 3,
-    "Service Category": "Inpatient",
-    "Service Code": 460,
-    "Service Description": "Spinal fusion except cervical w/o MCC Fusion of Lumbar Vertebral Joint with Synthetic Substitute, Posterior Approach, Posterior Column, Op Spondylolysis, site unspecified",
-    "Price": "$24,613.33",
-    "Remarks": ""
-  },
-  {
-    "No": 4,
-    "Service Category": "Inpatient",
-    "Service Code": 470,
-    "Service Description": "Major joint replacement or reattachment of lower extremity w/o MCC Replacement of Right Knee Joint with Autologous Tissue Substitute, Open Approach Osteoarthritis of knee, unspecified",
-    "Price": "$18,122.75",
-    "Remarks": ""
-  },
-  {
-    "No": 5,
-    "Service Category": "Inpatient",
-    "Service Code": 473,
-    "Service Description": "Cervical spinal fusion w/o CC/MCC Fusion of Cervical Vertebral Joint with Autologous Tissue Substitute, Anterior Approach, Anterior Co Spinal stenosis, cervical region",
-    "Price": "$16,621.30",
-    "Remarks": ""
-  },
-  {
-    "No": 6,
-    "Service Category": "Inpatient",
-    "Service Code": 775,
-    "Service Description": "Obstetrical pre- and postpartum care and vaginal delivery",
-    "Price": "$5,000.00",
-    "Remarks": ""
-  },
-  {
-    "No": 7,
-    "Service Category": "Inpatient",
-    "Service Code": 806,
-    "Service Description": "Vaginal delivery after prior cesarean delivery",
-    "Price": "$5,000.00",
-    "Remarks": ""
-  },
-  {
-    "No": 8,
-    "Service Category": "Inpatient",
-    "Service Code": "O34.29",
-    "Service Description": "Uterine & adnexa proc for non-malignancy w/o CC/MCC Resection of Cervix, Percutaneous Endoscopic Approach Leiomyoma of uterus, unspecified",
-    "Price": "$9,000.00",
-    "Remarks": ""
-  },
-  {
-    "No": 9,
-    "Service Category": "Inpatient",
-    "Service Code": "O48.0",
-    "Service Description": "Cesarian delivery with pre- and post-delivery care",
-    "Price": "$9,000.00",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Cardiovascular",
-    "Service Code": 93005,
-    "Service Description": "Routine electrocardiogram (EKG) with tracing using at least 12 leads",
-    "Price": "$130.73",
-    "Remarks": ""
-  },
-  {
-    "No": 2,
-    "Service Category": "Cardiovascular",
-    "Service Code": 93017,
-    "Service Description": "Exercise or drug-induced heart and blood vessel stress test with EKG tracing and monitoring",
-    "Price": "$480.08",
-    "Remarks": ""
-  },
-  {
-    "No": 3,
-    "Service Category": "Cardiovascular",
-    "Service Code": 93306,
-    "Service Description": "Ultrasound examination of heart including color-depicted blood flow rate, direction, and valve function",
-    "Price": "$1,044.82",
-    "Remarks": ""
-  },
-  {
-    "No": 4,
-    "Service Category": "Cardiovascular",
-    "Service Code": 93307,
-    "Service Description": "Chest ultrasound examination of heart",
-    "Price": "$604.69",
-    "Remarks": ""
-  },
-  {
-    "No": 5,
-    "Service Category": "Cardiovascular",
-    "Service Code": 93350,
-    "Service Description": "Ultrasound examination of the heart performed during rest, exercise, and/or drug-induced stress with interpretation and report",
-    "Price": "$844.22",
-    "Remarks": ""
-  },
-  {
-    "No": 6,
-    "Service Category": "Cardiovascular",
-    "Service Code": "Not Specified",
-    "Service Description": "Insertion of catheter into left heart including imaging interpretation and supervision and injection",
-    "Price": "$3,933.80",
-    "Remarks": ""
-  },
-  {
-    "No": 1,
-    "Service Category": "Audiology",
-    "Service Code": 92611,
-    "Service Description": "Fluoroscopic and video recorded motion evaluation of swallowing function",
-    "Price": "$355.13",
+    "Service Category": "Vascular Studies",
+    "Service Code": 93990,
+    "Service Description": "Ultrasound of dialysis access",
+    "Price": "$226.44",
     "Remarks": ""
   }
-];
+]
