@@ -130,7 +130,7 @@ export function generateContent( params:any ){
 
   </div>
   <div style="width: 40%;height: inherit;color: #000;font-size: 15px;font-weight: 500; padding-top:30px ;text-align:left;padding-right:20px">
-    <p>725 S, Orange Av, West Covina, CA 91790</p>
+    <p style="white-space: nowrap;">725 S, Orange Av, West Covina, CA 91790</p>
     <p>626-338-8481</p>
     <p>administration@westcovinamc.com</p>
   </div>
@@ -155,7 +155,7 @@ export function generateContent( params:any ){
   </div>
   <div style="width:25%;">
     <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
-    <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${moment(
+    <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;white-space: nowrap;">${moment(
       new Date()
     ).format("MMMM Do YYYY")}</p>
   </div>
