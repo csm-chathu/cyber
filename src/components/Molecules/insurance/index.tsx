@@ -51,7 +51,7 @@ export default function Insurance({
         Payment Details
       </Typography>
       <Grid container direction="row">
-        <Collapse in={warn} sx={{ width: "100%" }}>
+        <Collapse in={warn} sx={{ width: "100%",mb:2 }}>
           <Alert
             severity="warning"
             sx={{ border: "1px solid #FFD336", backgroundColor: "#FFF8D5" }}

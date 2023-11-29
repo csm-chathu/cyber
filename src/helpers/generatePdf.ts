@@ -129,7 +129,7 @@ export function generateContent( params:any ){
   <Image src=${imageBuffer} height="106px" width="361px" style="margin-top: 40px; margin-left: 20px;">
 
   </div>
-  <div style="width: 40%;height: inherit;color: #000;font-size: 15px;font-weight: 500; padding-top:30px ;text-align:left;padding-right:20px">
+  <div style="width: 40%;height: inherit;color: #000;font-size: 14px;font-weight: 500; padding-top:45px ;text-align:left;padding-right:20px">
     <p style="white-space: nowrap;">725 S, Orange Av, West Covina, CA 91790</p>
     <p>626-338-8481</p>
     <p>administration@westcovinamc.com</p>
@@ -141,19 +141,13 @@ export function generateContent( params:any ){
   <p style="color: #008D78;font-size: 42px;font-weight: 500;">Price Estimation</p>
 </div>
 <div style="width: 100%;display: flex;">
-  <div style="width: 40%;">
-    <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared For</label>
-    <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
-      params?.contact?.Fname + " " + params?.contact?.Lname
-    }</p>
-  </div>
-  <div style="width: 40%;">
+  <div style="width: 50%;">
     <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Reference Id</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;">${
       params?.ref || "N/A"
     }</p>
   </div>
-  <div style="width:25%;">
+  <div style="width:50%;;text-align:right">
     <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;white-space: nowrap;">${moment(
       new Date()
@@ -165,10 +159,10 @@ export function generateContent( params:any ){
     <p style="color:black;font-size:20;font-weight: 500;">Patient Details</p>
 </div>
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
-  <div style="width: 50%;">
+  <div style="width: 30%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Name</p>
   </div>
-  <div style="width: 50%;">
+  <div style="width: 70%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
       params?.contact?.Fname + " " + params?.contact?.Lname
     }</p>
@@ -177,10 +171,10 @@ export function generateContent( params:any ){
 
   
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width: 50%;">
+  <div style="width: 30%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Plan</p>
   </div>
-  <div style="width: 50%;">
+  <div style="width: 70%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
       params?.insurance?.insured || "N/A"
     }</p>
@@ -188,10 +182,10 @@ export function generateContent( params:any ){
 </div>
 
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width: 50%;">
+  <div style="width: 30%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Phone Number</p>
   </div>
-  <div style="width: 50%;">
+  <div style="width: 70%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
       params?.contact?.phone || "N/A"
     }</p>
@@ -199,10 +193,10 @@ export function generateContent( params:any ){
 </div>
 
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width: 50%;">
+  <div style="width: 30%;">
     <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Patient Address</p>
   </div>
-  <div style="width: 50%;">
+  <div style="width: 70%;">
     <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
       params?.contact?.address1 +
       "," +
@@ -217,10 +211,10 @@ export function generateContent( params:any ){
   <p style="color:black;font-size:20;font-weight: 500;">Estimate Details</p>
 </div>
 <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
-<div style="width: 30%;">
+<div style="width: 20%;">
   <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;">Service</p>
 </div>
-<div style="width: 70%;">
+<div style="width: 80%;">
   <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 5px 10px;">${
     params?.service?.value["Service Description"]
   }</p>

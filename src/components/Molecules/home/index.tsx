@@ -21,7 +21,7 @@ export default function Home({ act, setAct, obj, setObj }: any) {
           mb: 3,
         }}
       >
-        Welcome to West Covina!
+        Welcome to West Covina Medical Center !
       </Typography>
       <Typography
         textAlign="justify"
@@ -53,20 +53,6 @@ export default function Home({ act, setAct, obj, setObj }: any) {
           mt: 10,
         }}
       >
-        <Button
-          variant="outlined"
-          color="success"
-          sx={{
-            padding: "10px 40px",
-            fontSize: "18px",
-            textTransform: "none",
-            borderRadius: "8px",
-            border: "none",
-            backgroundColor: theme.palette.secondary.main,
-          }}
-        >
-          <ArrowBackIcon /> Go Back
-        </Button>
         <Button
           variant="contained"
           color="success"
