@@ -76,7 +76,7 @@ export default function Insurance({
                     onChange={() => setPaymentSelectHandler(1)}
                   />
                 }
-                label="Self Pay"
+                label="Self-pay"
                 sx={{
                   padding: "5px 16px 5px 18px",
                   border: "1px solid #CEDCF6",
