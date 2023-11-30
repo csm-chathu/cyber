@@ -232,8 +232,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
                   />
                 )}
                 <Typography sx={{ color: "#ffff", ml: 1, mt: "4px" }}>
-                  {sendStatus == "success" && "Email send successfully"}
-                  {sendStatus == "failed" && "Email send failed"}
+                  {sendStatus == "success" && "Email sent successfully"}
+                  {sendStatus == "failed" && "Email sending failed"}
                 </Typography>
               </Grid>
             </Box>
