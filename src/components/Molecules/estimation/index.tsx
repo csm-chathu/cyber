@@ -146,7 +146,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           Estimated on
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
-          {moment(new Date()).format("MMMM Do YYYY")}
+          {moment(new Date()).format("Do MMMM YYYY")}
         </Grid>
       </Grid>
       <Grid

@@ -99,7 +99,7 @@ export default function Insurance({
               <FormControlLabel
                 value="2"
                 control={
-                  <Radio
+                  <Radio disabled
                     checked={paymentSelect == 2 ? true : false}
                     onChange={() => setPaymentSelectHandler(2)}
                   />

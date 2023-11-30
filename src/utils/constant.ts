@@ -4,7 +4,7 @@ export const OBJ_ARR = {
   service: {},
   estimation: {},
   insurance: {
-    insured: "Self Pay",
+    insured: "Self-Pay",
   },
   ref: null,
 };

@@ -151,7 +151,7 @@ export function generateContent( params:any ){
     <label style="color: #82889B;font-size: 15px;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 5px;">Prepared</label>
     <p style="color: black;font-size: 18px;font-weight: 500;line-height: normal;font-style: normal;white-space: nowrap;">${moment(
       new Date()
-    ).format("MMMM Do YYYY")}</p>
+    ).format("Do MMMM YYYY")}</p>
   </div>
 </div>
 
