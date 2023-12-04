@@ -288,7 +288,7 @@ export default function Insurance({
               textTransform: "none",
               borderRadius: "8px",
             }}
-            onClick={() => setAct(4)}
+            onClick={() => setAct(3)}
           >
             Continue
           </Button>

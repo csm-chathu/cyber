@@ -32,17 +32,17 @@ export default function Main() {
           <Home act={act} setAct={setAct} obj={obj} setObj={setObj} />
         </Container>
       )}
-      {act == 1 && (
+      {/* {act == 1 && (
         <Container>
           <Contact act={act} setAct={setAct} obj={obj} setObj={setObj} />
         </Container>
-      )}
-      {act == 2 && (
+      )} */}
+      {act == 1 && (
         <Container>
           <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
         </Container>
       )}
-      {act == 3 && (
+      {act == 2 && (
         <Container>
           <Insurance
             act={act}
@@ -54,7 +54,7 @@ export default function Main() {
           />
         </Container>
       )}
-      {act == 4 && (
+      {act == 3 && (
         <Container width="750px">
           <Estimation act={act} setAct={setAct} obj={obj} setObj={setObj} />
         </Container>

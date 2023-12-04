@@ -16,6 +16,8 @@ import moment from "moment";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import { OBJ_ARR } from "../../../utils/constant";
+import { formatDate } from "../../../utils/commonFun";
+
 
 interface State extends SnackbarOrigin {
   open: boolean;
@@ -146,7 +148,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           Estimated on
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
-          {moment(new Date()).format("Do MMMM YYYY")}
+        <p dangerouslySetInnerHTML={{__html: formatDate()}}></p>
         </Grid>
       </Grid>
       <Grid
@@ -160,7 +162,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           mt: 10,
         }}
       >
-        <Button
+        {/* <Button
           disabled={print}
           variant="outlined"
           color="success"
@@ -181,8 +183,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
             />
           )}
           {print ? "Wait" : "Print"}
-        </Button>
-        <Button
+        </Button> */}
+        {/* <Button
           // disabled={email}
           variant="contained"
           color="success"
@@ -201,6 +203,26 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
             />
           )}
           {email ? "Please wait" : "Send an Email"}
+        </Button> */}
+        <Button
+          disabled={print}
+          variant="contained"
+          color="success"
+          sx={{
+            padding: "5px 80px",
+            fontSize: "16px",
+            textTransform: "none",
+            borderRadius: "8px",
+          }}
+          onClick={printPdf}
+        >
+          {print && (
+            <CircularProgress
+              sx={{ marginLeft: "0", marginRight: "10px", color: "black" }}
+              size={20}
+            />
+          )}
+          {print ? "Wait" : "Print"}
         </Button>
         <Grid item sm={12}>
           <Collapse in={emailSend}>

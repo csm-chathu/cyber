@@ -98,8 +98,9 @@ export default function Services({ obj, setObj, setAct }: any) {
     );
     if (selected.length > 0) {
       let conArr = { ...obj, service: selected[0] };
+      conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
       setObj(conArr);
-      setAct(3);
+      setAct(2);
     }
   };
   useEffect(() => {
