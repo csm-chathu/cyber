@@ -39,11 +39,6 @@ export default function Main() {
       )} */}
       {act == 1 && (
         <Container>
-          <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
-        </Container>
-      )}
-      {act == 2 && (
-        <Container>
           <Insurance
             act={act}
             setAct={setAct}
@@ -52,6 +47,11 @@ export default function Main() {
             paymentSelect={paymentSelect}
             setPaymentSelect={setPaymentSelect}
           />
+        </Container>
+      )}
+      {act == 2 && (
+        <Container>
+          <Services act={act} setAct={setAct} obj={obj} setObj={setObj} />
         </Container>
       )}
       {act == 3 && (

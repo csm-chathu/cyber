@@ -11,20 +11,25 @@ import {
   TextFieldProps,
   Alert,
   Collapse,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Insurance({
   setAct,
   paymentSelect,
   setPaymentSelect,
+  obj,
+  setObj
 }: any) {
   const theme = useTheme();
   const [warn, setWarn] = useState(false);
+  const [insuranceType, setInsuranceType] = useState([]);
 
   const textProps: TextFieldProps = {
     id: "outlined-basic",
@@ -34,10 +39,21 @@ export default function Insurance({
       shrink: true,
     },
   };
+
   let setPaymentSelectHandler = async (val: number) => {
     setPaymentSelect(val);
-    val == 2 ? setWarn(true) : setWarn(false);
   };
+
+
+  let goToService = async () => {
+    obj.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
+    let conArr = { ...obj, insurance:{
+      insured:paymentSelect==1 ? 'Self-Pay' : 'Insured'
+    }};
+    setObj(conArr);
+    setAct(2);
+  };
+
   return (
     <>
       <Typography
@@ -99,7 +115,7 @@ export default function Insurance({
               <FormControlLabel
                 value="2"
                 control={
-                  <Radio disabled
+                  <Radio 
                     checked={paymentSelect == 2 ? true : false}
                     onChange={() => setPaymentSelectHandler(2)}
                   />
@@ -123,7 +139,7 @@ export default function Insurance({
             </RadioGroup>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sx={{ mt: 2 }}>
+        {/* <Grid item xs={12} sx={{ mt: 2 }}>
           <FormControl sx={{ width: "100%" }}>
             <Grid
               display="flex"
@@ -186,14 +202,15 @@ export default function Insurance({
               />
             </RadioGroup>
           </FormControl>
-        </Grid>
-        <Grid item xs={12} sx={{ p: 1 }}>
+        </Grid> */}
+        {/* <Grid item xs={12} sx={{ pt: 3 }}>
           <label>Insurance Name</label>
-          <TextField
-            {...textProps}
-            disabled
-            placeholder="Select Insurance Company"
-          />
+          <Select  fullWidth={true}>
+            {insuranceType?.map((item)=>(
+              <MenuItem value={item?.Payer}>{item?.Payer || 'N/A'}</MenuItem>
+            ))
+            }
+            </Select>
           <Grid
             display="flex"
             container
@@ -214,19 +231,21 @@ export default function Insurance({
               the contact information.
             </Typography>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={6} sx={{ p: 1 }}>
+        </Grid> */}
+        
+        {/* <Grid item xs={12} md={6} sx={{ p: 1 }}>
           <label>Relationship to Insured</label>
           <TextField
             {...textProps}
             disabled
             placeholder="Select Insurance Relationship"
           />
-        </Grid>
+        </Grid> */}
+{/* 
         <Grid item xs={12} md={6} sx={{ p: 1 }}>
           <label>Group Number</label>
           <TextField {...textProps} disabled placeholder="Enter Group number" />
-        </Grid>
+        </Grid> */}
       </Grid>
 
       <Grid
@@ -251,7 +270,6 @@ export default function Insurance({
           <Button
             variant="text"
             color="success"
-            disabled={paymentSelect == 2 ? true : false}
             sx={{
               padding: "5px 25px",
               fontSize: "16px",
@@ -278,7 +296,6 @@ export default function Insurance({
           }}
         >
           <Button
-            disabled={paymentSelect == 2 ? true : false}
             type="submit"
             variant="contained"
             color="success"
@@ -288,7 +305,8 @@ export default function Insurance({
               textTransform: "none",
               borderRadius: "8px",
             }}
-            onClick={() => setAct(3)}
+            onClick={goToService}
+            // onClick={() => setAct(2)}
           >
             Continue
           </Button>

@@ -148,7 +148,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           Estimated on
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
-        <p dangerouslySetInnerHTML={{__html: formatDate()}}></p>
+        <p dangerouslySetInnerHTML={{__html: formatDate()}} style={{marginTop:20}}></p>
         </Grid>
       </Grid>
       <Grid
