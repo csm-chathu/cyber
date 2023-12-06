@@ -71,7 +71,7 @@ const ColorlibStepIconRoot = styled("div")<{
 }));
 
 // const steps = ["Home", "Contact", "Services", "Payment", "Estimation"];
-const steps = ["Home", , "Services", "Payment", "Estimation"];
+const steps = ["Home", , "Services", "Estimation"];
 
 
 export default function CustomizedSteppers({

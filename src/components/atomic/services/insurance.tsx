@@ -91,11 +91,12 @@ export default function Insurace({ obj, setObj, setAct }: any) {
     );
     if (selected.length > 0) {
       let conArr = { ...obj, service: selected[0] };
-      // conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
+      conArr.insurance.insured="Insurance";
+      conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
       setObj(conArr);
       console.log(conArr);
       
-      // setAct(3);
+      setAct(3);
     }
   };
   useEffect(() => {
@@ -104,11 +105,11 @@ export default function Insurace({ obj, setObj, setAct }: any) {
   return (
     <>
       {/* {serviceSelected} */}
-      <Typography textAlign="left" sx={{ fontSize: "24px", fontWeight: 500, mb: 3, }} > Select Insurance </Typography>
+      {/* <Typography textAlign="left" sx={{ fontSize: "24px", fontWeight: 500, mb: 3,mt:3 }} > Select Insurance </Typography> */}
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row">
           <Grid item xs={12} md={6} sx={{ p: 1 }}>
-            <label>Select Insurance category</label>
+            <label>Choose your insurance</label>
             <Autocomplete
               disablePortal
               {...register("cat")}
@@ -123,7 +124,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
           </Grid>
 
           <Grid item xs={12} md={6} sx={{ p: 1 }}>
-            <label>Search by Insurance Code</label>
+            <label>Search by Service Description or Code</label>
             <TextField
               {...textProps}
               onChange={(e) => searchCode(e.target.value)}
@@ -131,10 +132,10 @@ export default function Insurace({ obj, setObj, setAct }: any) {
             />
           </Grid>
           <Grid item xs={12} sx={{ p: 1 }}>
-            <label>Services</label>
+            <label>Service</label>
             <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
-                multiple
+                // multiple
                 native
                 value={serviceSelected}
                 onChange={handleChangeMultiple}
@@ -144,13 +145,22 @@ export default function Insurace({ obj, setObj, setAct }: any) {
                 }}
               >
                 {service.map((item: any, i) => (
-                  <option key={i} value={item?.id}>
-                    {item.label}
+                  <option key={i} value={item?.id} disabled={item.value['Gross Charge']=='N/A'}  
+                  style={{color:item.value['Gross Charge']=='N/A' ? 'grey' : 'black'}}>
+                    <Grid display="flex" direction="row">
+                      <Grid item xs={8}>
+                        {item.label}
+                      </Grid>
+                      <Grid item xs={4} sx={{textAlign:'right'}}>
+                        {item.value['Gross Charge']}
+                      </Grid>
+                    </Grid>
+                    
                   </option>
                 ))}
               </Select>
               <FormHelperText>
-                {serviceError ? "Insurance type required" : null}
+                {serviceError ? "Service is required" : null}
               </FormHelperText>
             </FormControl>
           </Grid>

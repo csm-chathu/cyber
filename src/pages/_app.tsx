@@ -9,9 +9,18 @@ import { themeAtom } from "../store";
 import { useAtom } from "jotai";
 import darkTheme from "../themes/dark.theme";
 import WCMC from "../themes/light.theme";
-import LADMC from "../themes/light-ladmc.theme";
+import light from "../themes/light-ladmc.theme";
 import { useEffect, useState } from "react";
 const clientSideEmotionCache = createEmotionCache();
+import { organizations } from "../mock-data/organizations";
+
+
+// import THEMEFILE from '../themes/${organizations.data[process?.env?.NEXT_PUBLIC_COMPANY_ID || 'WCMC']['THEME_FILE']};
+// import THEMEFILE from ("../themes/"+organizations.data[process?.env?.NEXT_PUBLIC_COMPANY_ID || 'WCMC']['THEME_FILE']});
+
+
+// console.log(organizations.data[process?.env?.NEXT_PUBLIC_COMPANY_ID || 'WCMC']['THEME_FILE']);
+
 
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -26,6 +35,10 @@ export default function MyApp(props: MyAppProps) {
   //   const AppLogo = process.env.NEXT_PUBLIC_COMPANY_ID;
   //   setCompany(AppLogo || "");
   // }, []);
+  // let ORG=organizations.data[process?.env?.NEXT_PUBLIC_COMPANY_ID || 'WCMC'];
+  // console.log(process.env.NEXT_PUBLIC_COMPANY_ID);
+  
+// console.log('thid',THEMEFILE);
 
   return (
     <CacheProvider value={emotionCache}>

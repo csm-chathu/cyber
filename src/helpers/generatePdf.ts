@@ -104,6 +104,8 @@ export function generateBodyContent(req:any){
 }
 
 export function generateContent( params:any ){
+  // console.log(params);
+  
   const imageBuffer = readPublicLogo();
   return  `
   <html>
@@ -140,65 +142,7 @@ export function generateContent( params:any ){
 <div style="width: 100%;">
   <p style="color: #008D78;font-size: 42px;font-weight: 500;">Price Estimation</p>
 </div>
-
-
-  
-<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;">
-  <div style="width: 30%;">
-    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Reference Id</p>
-  </div>
-  <div style="width: 70%;">
-    <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
-      params?.ref || "N/A"
-    }</p>
-  </div>
-</div>
-
-<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width: 30%;">
-    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Prepared On</p>
-  </div>
-  <div style="width: 70%;">
-    <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${formatDate()}</p>
-  </div>
-</div>
-
-<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width: 30%;">
-    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Plan</p>
-  </div>
-  <div style="width: 70%;">
-    <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
-      params?.insurance?.insured || "N/A"
-    }</p>
-  </div>
-</div>
-
-<div style="width: 100%;display: flex;border: 1px solid #CEDCF6;border-top: none;align-items: center;">
-  <div style="width: 30%;">
-    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 3px 10px;">Service</p>
-  </div>
-  <div style="width: 70%;">
-    <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 3px 10px;">${
-      params?.service?.value["Service Description"]
-    }</p>
-  </div>
-</div>
-
-<div style="width: 100%;border: 1px solid #CEDCF6;border-top: none;">
-  <div style="width:100%;display: flex;align-items: center;">
-    <div style="width: 40%;">
-      <p style="color:#82889B;font-size:16;font-weight: 400;padding: 5px 10px;">Total Estimated Patient Responsibility</p>
-    </div>
-    <div style="width: 60%;">
-    <p style="color:#020202;font-size:32px;font-weight: 400;text-align: right;padding: 5px 10px">${
-      params?.service?.value?.Price
-    }</p>
-    </div>
-  </div>
-</div>
-
-
+${insuranceCategories(params)}
 </div>
 <div style="width:97%; margin-top:10px; background-color:#008D78;padding:15px;line-height: normal;position: absolute;bottom: 0;left: 0;">
 <p style="font-size: 14px;font-weight: 400; color:#FFF"><span style="color:#FFF;font-weight: 600;">Disclaimer : </span> Please read carefully and understand that the estimate provided is not a quote or guarantee for the final amount you will owe. It is only our best estimate at this time given the information you provided, which is subject to change if your medical condition or insurance coverage changes. You may want to contact your health insurance company to determine your health coverage benefits and to get an estimate of what you may owe for your visit.</p>
@@ -208,6 +152,63 @@ export function generateContent( params:any ){
 </html>`;
 }
 
+
+export function insuranceCategories(params:any){
+ let output=`
+ ${singlePdfRow('Reference Id',params?.ref || "N/A",false)}
+ ${singlePdfRow('Prepared On',formatDate())}
+ ${singlePdfRow('Plan',params?.insurance?.insured || "N/A")}
+`;
+
+output += params.insurance.insured == 'Self-Pay' ?
+
+`${singlePdfRow('Service',params?.service?.value["Service Description"] || "N/A")}
+<div style="width: 100%;border: 1px solid #CEDCF6;border-top: none;">
+<div style="width:100%;display: flex;align-items: center;">
+  <div style="width: 60%;">
+    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 1px 10px;">Total Estimated Patient Responsibility</p>
+  </div>
+  <div style="width: 40%;">
+  <p style="color:#020202;font-size:32px;font-weight: 400;text-align: right;padding: 1px 10px">${
+    params?.service?.value?.Price
+  }</p>
+  </div>
+</div>
+</div> 
+`:`
+${singlePdfRow('Insurance',params?.service?.value["Payer"] || "N/A")}
+${singlePdfRow('Procedure Code',params?.service?.value["Procedure"] || "N/A")}
+${singlePdfRow('Service',params?.service?.value["DESCR"] || "N/A")}
+${singlePdfRow('Payer Charge',params?.service?.value["Payer Charge"] || "N/A")}
+${singlePdfRow('Minimum Negotiated Charge',params?.service?.value["Minimum Negotiated Charge"] || "N/A",false,'50')}
+${singlePdfRow('Maximum Negotiated Charge',params?.service?.value["Maximum Negotitated Charge"] || "N/A",false,'50')}
+${singlePdfRow('Discount Cash',params?.service?.value["Discount Cash"] || "N/A")}
+<div style="width: 100%;border: 1px solid #CEDCF6;border-top: none;">
+<div style="width:100%;display: flex;align-items: center;">
+  <div style="width: 60%;">
+    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 1px 10px;">Total Estimated Patient Responsibility</p>
+  </div>
+  <div style="width: 40%;">
+  <p style="color:#020202;font-size:32px;font-weight: 400;text-align: right;padding: 1px 10px">${ params?.service?.value["Gross Charge"] }</p>
+  </div>
+</div>
+</div>
+`;
+return output;
+}
+
+export function singlePdfRow(lbl:string,val:string,border:boolean=false,width:string='30'){
+  return `
+  <div style="width: 100%;display: flex;border: 1px solid #CEDCF6;${border ? 'border-top: none;' : ''}">
+  <div style="width: ${width}%;">
+    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 1px 8px;">${lbl}</p>
+  </div>
+  <div style="width:${width !='30' ? width+'%' :'70%'};">
+    <p style="color:#020202;font-size:16;font-weight: 400;text-align: right;padding: 1px 8px;">${val}</p>
+  </div>
+</div>
+  `;
+}
 
 export async function generatePdf(params: any) {
   const browser = await puppeteer.launch({
@@ -231,3 +232,5 @@ export async function generatePdf(params: any) {
 
   return pdfBuffer;
 }
+
+

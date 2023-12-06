@@ -88,11 +88,12 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
     );
     if (selected.length > 0) {
       let conArr = { ...obj, service: selected[0] };
-      // conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
+      conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
+      conArr.insurance.insured="Self-Pay";
       setObj(conArr);
       console.log(conArr);
       
-      setAct(2);
+      setAct(3);
     }
   };
   useEffect(() => {
@@ -105,6 +106,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
           fontSize: "24px",
           fontWeight: 500,
           mb: 3,
+          mt:3
         }} > Select Medical Service </Typography>
 
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
@@ -136,7 +138,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
             <label>Services</label>
             <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
-                multiple
+                // multiple
                 native
                 value={serviceSelected}
                 onChange={handleChangeMultiple}

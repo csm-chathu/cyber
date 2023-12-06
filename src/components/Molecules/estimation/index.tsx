@@ -16,7 +16,9 @@ import moment from "moment";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import { OBJ_ARR } from "../../../utils/constant";
-import { formatDate } from "../../../utils/commonFun";
+// import { formatDate } from "../../../utils/commonFun";
+import SelfPay from "../../atomic/estimation/self-pay";
+import Insured from "../../atomic/estimation/insured";
 
 
 interface State extends SnackbarOrigin {
@@ -30,18 +32,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
   const [email, setEmail] = useState(false);
   const [emailSend, setEmailSend] = useState(false);
 
-  const lable = {
-    color: theme.palette.txt.muted,
-    fontSize: "20px",
-    fontStyle: "normal",
-    fontWeight: "400",
-    lineHeight: "normal",
-  };
 
-  const value = {
-    ...lable,
-    color: "#000",
-  };
 
   let sendEmail = async () => {
     try {
@@ -101,17 +92,13 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
   };
   return (
     <>
-      <Typography
-        textAlign="left"
-        sx={{
-          fontSize: "24px",
-          fontWeight: 500,
-          mb: 3,
-        }}
-      >
+    {/* {JSON.stringify(obj)} */}
+      <Typography  textAlign="left"  sx={{ fontSize: "24px", fontWeight: 500,  mb: 3, }}  >
         Payment Estimate
       </Typography>
-      <Grid container direction="row">
+       { obj?.insurance?.insured && obj.insurance.insured=='Self-Pay' ? (<SelfPay obj={obj}/>): (<Insured obj={obj}/>) }
+       {/* <SelfPay obj={obj}/> */}
+      {/* <Grid container direction="row">
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
           Service
         </Grid>
@@ -150,18 +137,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
         <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
         <p dangerouslySetInnerHTML={{__html: formatDate()}} style={{marginTop:20}}></p>
         </Grid>
-      </Grid>
-      <Grid
-        display="flex"
-        container
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        gap={1}
-        sx={{
-          mt: 10,
-        }}
-      >
+      </Grid> */}
+      <Grid display="flex"  container  direction="row" alignItems="center" justifyContent="center" gap={1} sx={{  mt: 10, }} >
         {/* <Button
           disabled={print}
           variant="outlined"
@@ -204,12 +181,28 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           )}
           {email ? "Please wait" : "Send an Email"}
         </Button> */}
+
+        <Button
+          variant="outlined"
+          color="success"
+          sx={{
+            padding: "5px 40px",
+            fontSize: "16px",
+            textTransform: "none",
+            borderRadius: "8px",
+            backgroundColor: theme.palette.secondary.main,
+            borderColor: theme.palette.secondary.main,
+          }}
+          onClick={()=>setAct(1)} >
+          Select a Different Service
+        </Button>
+
         <Button
           disabled={print}
           variant="contained"
           color="success"
           sx={{
-            padding: "5px 80px",
+            padding: "5px 100px",
             fontSize: "16px",
             textTransform: "none",
             borderRadius: "8px",
@@ -224,7 +217,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           )}
           {print ? "Wait" : "Print"}
         </Button>
-        <Grid item sm={12}>
+        {/* <Grid item sm={12}>
           <Collapse in={emailSend}>
             <Box
               sx={{
@@ -235,8 +228,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
                 borderRadius: "4px 4px 4px 4px",
                 mt: 2,
               }}
-            >
-              <Grid
+            > */}
+              {/* <Grid
                 display="flex"
                 container
                 direction="row"
@@ -257,10 +250,10 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
                   {sendStatus == "success" && "Email sent successfully"}
                   {sendStatus == "failed" && "Email sending failed"}
                 </Typography>
-              </Grid>
-            </Box>
-          </Collapse>
-        </Grid>
+              </Grid> */}
+            {/* </Box>
+          </Collapse> */}
+        {/* </Grid> */}
       </Grid>
     </>
   );

@@ -19,6 +19,8 @@ import FormControl from "@mui/material/FormControl";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ServicesSelf from "../../atomic/services/self-pay";
+import Insurace from "../../atomic/services/insurance";
 
 export default function Insurance({
   setAct,
@@ -41,6 +43,7 @@ export default function Insurance({
   };
 
   let setPaymentSelectHandler = async (val: number) => {
+    val==2 ? setWarn(true) : setWarn(false);
     setPaymentSelect(val);
   };
 
@@ -72,12 +75,12 @@ export default function Insurance({
             severity="warning"
             sx={{ border: "1px solid #FFD336", backgroundColor: "#FFF8D5" }}
           >
-            This feature will be available soon.
+            Depending on the chosen insurance provider, certain services may not be relevant or applicable..
           </Alert>
         </Collapse>
         <Grid item sx={{ width: "100%" }}>
           <FormControl sx={{ width: "100%" }}>
-            <label>Are you Insured?</label>
+            <label>Select payment method</label>
             <RadioGroup
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
@@ -139,6 +142,12 @@ export default function Insurance({
             </RadioGroup>
           </FormControl>
         </Grid>
+{/* {paymentSelect} */}
+        {paymentSelect == 2 ? 
+      (<Insurace obj={obj} setObj={setObj} setAct={setAct}/>) :
+      (<ServicesSelf obj={obj} setObj={setObj} setAct={setAct}/>)
+  }
+
         {/* <Grid item xs={12} sx={{ mt: 2 }}>
           <FormControl sx={{ width: "100%" }}>
             <Grid
@@ -247,7 +256,7 @@ export default function Insurance({
           <TextField {...textProps} disabled placeholder="Enter Group number" />
         </Grid> */}
       </Grid>
-
+{/* 
       <Grid
         display="flex"
         gap={1}
@@ -311,7 +320,7 @@ export default function Insurance({
             Continue
           </Button>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 }
