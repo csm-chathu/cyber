@@ -91,8 +91,6 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
       conArr.ref = obj.ref ? obj.ref : "REF" + new Date().getTime();
       conArr.insurance.insured="Self-Pay";
       setObj(conArr);
-      console.log(conArr);
-      
       setAct(3);
     }
   };
@@ -102,23 +100,22 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
   return (
     <>
       {/* {serviceSelected} */}
-      <Typography textAlign="left" sx={{
+      {/* <Typography textAlign="left" sx={{
           fontSize: "24px",
           fontWeight: 500,
           mb: 3,
           mt:3
-        }} > Select Medical Service </Typography>
+        }} > Select Medical Service </Typography> */}
 
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
-        <Grid container direction="row">
-          <Grid item xs={12} md={6} sx={{ p: 1 }}>
+        <Grid container direction="row" sx={{mt:3}}>
+          <Grid item xs={12} md={6} sx={{ pt: 1,pr:1 }}>
             <label>Select Healthcare Category</label>
             <Autocomplete
               disablePortal
               {...register("cat")}
               id="combo-box-demo"
               options={serviceCategory}
-              sx={{ width: "100%" }}
               renderInput={(params) => (
                 <TextField {...params} placeholder="Select Category" key="id" />
               )}
@@ -126,7 +123,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} sx={{ p: 1 }}>
+          <Grid item xs={12} md={6} sx={{ pt: 1 }}>
             <label>Search by Service Description or Code</label>
             <TextField
               {...textProps}
@@ -134,11 +131,11 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
               placeholder="Description or CPT/HCPCS/DRG Code"
             />
           </Grid>
-          <Grid item xs={12} sx={{ p: 1 }}>
+          <Grid item xs={12} sx={{ pt: 3 }}>
             <label>Services</label>
             <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
-                // multiple
+                multiple
                 native
                 value={serviceSelected}
                 onChange={handleChangeMultiple}

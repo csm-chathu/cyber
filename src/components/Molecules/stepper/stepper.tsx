@@ -82,7 +82,7 @@ export default function CustomizedSteppers({
 }: any) {
   const setStepper = (prop: any) => {
     if (obj.agreed) {
-      if (paymentSelect == 1) {
+      if (paymentSelect == 1 ||paymentSelect == 2) {
         // if (prop > 2 && Object.keys(obj.contact).length == 0) {
         //   setAct(1);
         //   document.getElementById("contactValidate")?.click();
@@ -109,8 +109,8 @@ export default function CustomizedSteppers({
       // 5: <BarChartIcon />,
       1: <HomeIcon />,
       2: <VolunteerActivismIcon />,
-      3: <AddchartIcon />,
-      4: <BarChartIcon />,
+      // 3: <AddchartIcon />,
+      3: <BarChartIcon />,
     };
 
     return (

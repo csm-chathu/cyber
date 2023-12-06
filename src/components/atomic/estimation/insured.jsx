@@ -24,6 +24,14 @@ export default function Insured({obj}) {
   return (
     <>
         <ComGrid label='Reference Number' val={obj?.ref || "N/A"}/>
+        <Grid container direction="row">
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
+          Estimated on
+        </Grid>
+        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
+        <p dangerouslySetInnerHTML={{__html: formatDate()}} style={{marginTop:0}}></p>
+        </Grid>
+      </Grid>
         <ComGrid label='Patient Plan' val={obj?.insurance?.insured || "N/A"}/>
         <ComGrid label='Insurance' val={obj?.service?.value["Payer"] || "N/A"}/>
         <ComGrid label='Procedure Code' val={obj?.service?.value["Procedure"] || "N/A"}/>
@@ -35,14 +43,7 @@ export default function Insured({obj}) {
         <ComGrid label='Maximum Negotiated Charge' val={obj?.service?.value["Maximum Negotitated Charge"] || "N/A"}/>
         <ComGrid label='Discount Cash' val={obj?.service?.value["Discount Cash"] || "N/A"}/>
 
-      <Grid container direction="row">
-        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...lable }}>
-          Estimated on
-        </Grid>
-        <Grid item xs={12} md={6} sx={{ p: 1, mt: 2, ...value }}>
-        <p dangerouslySetInnerHTML={{__html: formatDate()}} style={{marginTop:0}}></p>
-        </Grid>
-      </Grid>
+
     </>
   );
 }

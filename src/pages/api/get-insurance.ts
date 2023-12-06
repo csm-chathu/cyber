@@ -7,7 +7,7 @@ export default async (req: any, res: any) => {
   let serviceCategory: any = [];
   let getService = INSURANCELIST.map((item, i) => {
     conObj.push({
-      label: `(${item["Payer"]}(${item["Procedure"]})) ${item["DESCR"]}`,
+      label: `(${item["Payer"]}(${item["Gross Charge"]})) ${item["DESCR"]}`,
       value: item,
       code: item["Procedure"],
       id: i,
