@@ -7,9 +7,7 @@ import createEmotionCache from "../createEmotionCache";
 import { Grid } from "@mui/material";
 import { themeAtom } from "../store";
 import { useAtom } from "jotai";
-import darkTheme from "../themes/dark.theme";
 import WCMC from "../themes/light.theme";
-import light from "../themes/light-ladmc.theme";
 import { useEffect, useState } from "react";
 const clientSideEmotionCache = createEmotionCache();
 import { organizations } from "../mock-data/organizations";
@@ -45,7 +43,7 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme === "dark" ? darkTheme : WCMC}>
+      <ThemeProvider theme={WCMC}>
         <CssBaseline />
         <Grid container>
           <Component {...pageProps} />
