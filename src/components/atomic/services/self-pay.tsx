@@ -110,7 +110,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row" sx={{mt:3}}>
           <Grid item xs={12} md={6} sx={{ pt: 1,pr:{ xs: 0,  sm: 1} }}>
-            <label>Choose your insurance</label>
+            <label>Select Healthcare Category</label>
             <Autocomplete
               disablePortal
               {...register("cat")}
