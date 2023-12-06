@@ -93,7 +93,7 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
   return (
     <>
     {/* {JSON.stringify(obj)} */}
-      <Typography  textAlign="left"  sx={{ fontSize: "24px", fontWeight: 500,  mb: 3, }}  >
+      <Typography  textAlign="left"  sx={{ fontSize: "24px", fontWeight: 550,  mb: 3, }}  >
         Payment Estimate
       </Typography>
        { obj?.insurance?.insured && obj.insurance.insured=='Self-Pay' ? (<SelfPay obj={obj}/>): (<Insured obj={obj}/>) }
@@ -186,8 +186,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           variant="outlined"
           color="success"
           sx={{
-            padding: "5px 40px",
-            fontSize: "16px",
+            padding: "7px 30px",
+            fontSize: "17px",
             textTransform: "none",
             borderRadius: "8px",
             backgroundColor: theme.palette.secondary.main,
@@ -202,8 +202,8 @@ export default function Estimation({ act, setAct, obj, setObj }: any) {
           variant="contained"
           color="success"
           sx={{
-            padding: "5px 100px",
-            fontSize: "16px",
+            padding: "7px 100px",
+            fontSize: "17px",
             textTransform: "none",
             borderRadius: "8px",
           }}

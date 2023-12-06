@@ -24,7 +24,7 @@ export default function SelfPay({obj}) {
   return (
     <>
         <ComGrid label='Service' val={obj?.service?.value["Service Description"] || "N/A"}/>
-        <ComGrid label='Patient Plan' val={obj?.insurance?.insured || "N/A"}/>
+        <ComGrid label='Payment Method' val={obj?.insurance?.insured || "N/A"}/>
         <ComGrid label='Reference Number' val={obj?.ref || "N/A"}/>
         <ComGrid label='Estimate Total' val={obj?.service?.value?.Price || "N/A"}/>
       <Grid container direction="row">

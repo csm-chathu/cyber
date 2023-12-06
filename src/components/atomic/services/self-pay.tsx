@@ -109,8 +109,8 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
 
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row" sx={{mt:3}}>
-          <Grid item xs={12} md={6} sx={{ pt: 1,pr:1 }}>
-            <label>Select Healthcare Category</label>
+          <Grid item xs={12} md={6} sx={{ pt: 1,pr:{ xs: 0,  sm: 1} }}>
+            <label>Choose your insurance</label>
             <Autocomplete
               disablePortal
               {...register("cat")}
@@ -132,7 +132,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
             />
           </Grid>
           <Grid item xs={12} sx={{ pt: 3 }}>
-            <label>Services</label>
+            <label>Service</label>
             <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
                 multiple
@@ -145,7 +145,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
                 }}
               >
                 {service.map((item: any, i) => (
-                  <option key={i} value={item?.id}>
+                  <option key={i} value={item?.id} style={{padding: '8px'}}>
                     {item.label}
                   </option>
                 ))}
@@ -167,7 +167,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
                 borderRadius: "8px",
                 border: "none",
                 backgroundColor: theme.palette.secondary.main,
-              }}  onClick={() => setAct(1)} >
+              }}  onClick={() => setAct(0)} >
               <ArrowBackIcon /> Go Back
             </Button>
           </Grid>

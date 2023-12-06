@@ -60,7 +60,7 @@ export default function Main() {
         </Container>
       )}
 
-      {act != 0 && (
+      {act != 5 && (
         <Box
           sx={{
             width: "94%",

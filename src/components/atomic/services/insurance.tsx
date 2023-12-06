@@ -106,7 +106,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
       {/* <Typography textAlign="left" sx={{ fontSize: "24px", fontWeight: 500, mb: 3,mt:3 }} > Select Insurance </Typography> */}
       <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row" sx={{mt:2}}>
-          <Grid item xs={12} md={6} sx={{ pt: 1,pr:1 }}>
+          <Grid item xs={12} md={6} sx={{ pt: 1,pr:{ xs: 0,  sm: 1}}}>
             <label>Choose your insurance</label>
             <Autocomplete
               disablePortal
@@ -168,7 +168,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
                 borderRadius: "8px",
                 border: "none",
                 backgroundColor: theme.palette.secondary.main,
-              }}  onClick={() => setAct(1)} >
+              }}  onClick={() => setAct(0)} >
               <ArrowBackIcon /> Go Back
             </Button>
           </Grid>
