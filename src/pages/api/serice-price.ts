@@ -5,7 +5,7 @@ export default async (req: any, res: any) => {
   let serviceCategory: any = [];
   let getService = PRICELIST.map((item, i) => {
     conObj.push({
-      label: `(${item["Service Code"]}) ${item["Service Description"]}`,
+      label: `(${item["Service Code"]}) ${item["Service Description"]} - ${item["Service Category"]}`,
       value: item,
       code: item["Service Code"],
       id: i,

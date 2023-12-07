@@ -58,7 +58,7 @@ export default function Insurance({
   };
 
   return (
-    <>
+    <Grid sx={{position:'relative'}}>
       <Typography
         textAlign="left"
         sx={{
@@ -147,6 +147,7 @@ export default function Insurance({
       (<Insurace obj={obj} setObj={setObj} setAct={setAct}/>) :
       (<ServicesSelf obj={obj} setObj={setObj} setAct={setAct}/>)
   }
+
 
         {/* <Grid item xs={12} sx={{ mt: 2 }}>
           <FormControl sx={{ width: "100%" }}>
@@ -321,6 +322,6 @@ export default function Insurance({
           </Button>
         </Grid>
       </Grid> */}
-    </>
+    </Grid>
   );
 }

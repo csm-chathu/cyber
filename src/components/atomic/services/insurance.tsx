@@ -5,6 +5,8 @@ import { useTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Loader from "../../atomic/loader";
+import NotFound from "../../atomic/notfound";
 
 const textProps: TextFieldProps = {
   id: "outlined-basic",
@@ -22,6 +24,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [serviceError, setServiceError] = useState(false);
   const [defaultService, setDefaultService] = useState([]);
+  const [load, setLoad] = useState(false);
 
   let sendEmail = async () => {
     const services = await fetch("/api/get-insurance", {
@@ -32,9 +35,14 @@ export default function Insurace({ obj, setObj, setAct }: any) {
     setService(services.option);
     setDefaultService(services.option);
     setServiceCategory(services.category);
+    setTimeout(() => {
+      setLoad(false);
+    }, 500);
+
   };
   useEffect(() => {
     sendEmail();
+    setLoad(true);
   }, []);
 
   const [serviceSelected, setServiceNameSelected] = useState<string[]>([]);
@@ -51,30 +59,47 @@ export default function Insurace({ obj, setObj, setAct }: any) {
 
   const searchCode = (val: string, cat: boolean = false) => {
     if (val == "") {
-      return setService(defaultService);
+      if(selectedCategory){
+      var ans:any = defaultService.filter(function (v: any, i: number) {
+        if (v.value['Payer']==selectedCategory) {
+          return true;
+        } else false;
+      });
+      return setService(ans);
+    }
+    return setService(defaultService);
     }
     filterByValue(defaultService, val, cat);
   };
 
   function filterByValue(arrayOfObject: any, term: string, cat: boolean) {
+    console.log('comes');
     
     if (!cat) {
       if(selectedCategory){
+        console.log('selecte');
         var ans:any = arrayOfObject.filter(function (v: any, i: number) {
-          if (v.label.toLowerCase().indexOf(term) >= 0 && v.value['Payer']==selectedCategory) {
+          
+          if (v.label.toLowerCase().indexOf(term.toLowerCase()) >= 0 && v.value['Payer']==selectedCategory) {
             return true;
           } else false;
         });
-        setService(ans);
+       return setService(ans);
       }else{
+        console.log('selecte2');
+
         var ans:any = arrayOfObject.filter(function (v: any, i: number) {
-          if (v.label.toLowerCase().indexOf(term) >= 0) {
+          if (v.label.toLowerCase().indexOf(term.toLowerCase()) >= 0) {
             return true;
           } else false;
         });
-        setService(ans);
+        return setService(ans);
       }
+      console.log('hrr');
+
     } else {
+      console.log('else');
+
       if(term){
         setSelectedCategory(term);
           var ans:any = defaultService.filter((item: any) => {
@@ -115,7 +140,8 @@ export default function Insurace({ obj, setObj, setAct }: any) {
     setServiceNameSelected(obj?.service?.id?.toString() || "");
   }, [defaultService]);
   return (
-    <>   
+    <Grid sx={{position:'relative',width:'100%'}}>   
+     {load ? (<Loader/>) : null} 
     <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row" sx={{mt:2}}>
           <Grid item xs={12} md={6} sx={{ pt: 1,pr:{ xs: 0,  sm: 1}}}>
@@ -143,7 +169,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
           </Grid>
           <Grid item xs={12} sx={{ pt: 3 }}>
             <label>Service</label>
-            <FormControl error={serviceError} sx={{ width: "100%" }}>
+            {service.length > 0 ? <><FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
                 multiple
                 native
@@ -166,7 +192,9 @@ export default function Insurace({ obj, setObj, setAct }: any) {
               </FormHelperText>
             </FormControl>
             <FormControl error={serviceError} fullWidth={true}>
-            </FormControl>
+            </FormControl></> : 
+            <NotFound/>
+            }
           </Grid>
         </Grid>
 
@@ -190,10 +218,12 @@ export default function Insurace({ obj, setObj, setAct }: any) {
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",
-              }} >  Continue </Button>
+              }}>  Continue </Button>
           </Grid>
         </Grid>
+
       </form>
-    </>
+           
+    </Grid>
   );
 }

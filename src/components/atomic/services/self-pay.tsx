@@ -5,6 +5,8 @@ import { useTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Loader from "../../atomic/loader";
+import NotFound from "../../atomic/notfound";
 
 const textProps: TextFieldProps = {
   id: "outlined-basic",
@@ -19,8 +21,10 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
   const theme = useTheme();
   const [service, setService] = useState([]);
   const [serviceCategory, setServiceCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [serviceError, setServiceError] = useState(false);
   const [defaultService, setDefaultService] = useState([]);
+  const [load, setLoad] = useState(false);
 
   let sendEmail = async () => {
     const services = await fetch("/api/serice-price", {
@@ -30,8 +34,12 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
     setService(services.option);
     setDefaultService(services.option);
     setServiceCategory(services.category);
+    setTimeout(() => {
+      setLoad(false);
+    }, 500);
   };
   useEffect(() => {
+    setLoad(true);
     sendEmail();
   }, []);
 
@@ -49,27 +57,49 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
 
   const searchCode = (val: string, cat: boolean = false) => {
     if (val == "") {
+      if(selectedCategory){
+        var ans:any = defaultService.filter(function (v: any, i: number) {
+          if ( v.value['Service Category']==selectedCategory ) {
+            return true;
+          } else false;
+        });
+        return setService(ans);
+      }
       return setService(defaultService);
     }
+    
     filterByValue(defaultService, val, cat);
   };
 
   function filterByValue(arrayOfObject: any, term: string, cat: boolean) {
     if (!cat) {
-      var ans = arrayOfObject.filter(function (v: any, i: number) {
-        if (
-          v.label.toLowerCase().indexOf(term) >= 0 ||
-          v.value["Service Category"].toLowerCase().indexOf(term) >= 0
-        ) {
+      if(selectedCategory){
+      var ans:any = defaultService.filter(function (v: any, i: number) {
+        if ( v.label.toLowerCase().indexOf(term) >= 0  && v.value['Service Category']==selectedCategory ) {
           return true;
         } else false;
       });
       setService(ans);
-    } else {
-      var ans = arrayOfObject.filter((item: any) => {
-        return item.value["Service Category"] == term;
+    }else{
+      var ans:any = defaultService.filter(function (v: any, i: number) {
+        if ( v.label.toLowerCase().indexOf(term) >= 0) {
+          return true;
+        } else false;
       });
       setService(ans);
+    }
+    } else {
+      if(term){
+        setSelectedCategory(term);
+          var ans:any = defaultService.filter((item: any) => {
+                return item.value['Service Category']==term;
+              });
+              setService(ans);
+      }else{
+        setSelectedCategory('');
+        setService(defaultService);
+      }
+
     }
   }
   const {
@@ -98,7 +128,10 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
     setServiceNameSelected(obj?.service?.id?.toString() || "");
   }, [defaultService]);
   return (
-    <>
+    <Grid sx={{position:'relative',width:'100%'}}>   
+    {/* <Loader/> */}
+      {load ? (<Loader/>) : null} 
+
       {/* {serviceSelected} */}
       {/* <Typography textAlign="left" sx={{
           fontSize: "24px",
@@ -133,7 +166,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
           </Grid>
           <Grid item xs={12} sx={{ pt: 3 }}>
             <label>Service</label>
-            <FormControl error={serviceError} sx={{ width: "100%" }}>
+            {service.length>0 ? <><FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
                 multiple
                 native
@@ -153,7 +186,8 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
               <FormHelperText>
                 {serviceError ? "Service type required" : null}
               </FormHelperText>
-            </FormControl>
+            </FormControl></>
+            :<NotFound/>}
           </Grid>
         </Grid>
 
@@ -181,6 +215,6 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
           </Grid>
         </Grid>
       </form>
-    </>
+    </Grid>
   );
 }
