@@ -36,11 +36,11 @@ export default function Insured({obj}) {
         <ComGrid label='Insurance' val={obj?.service?.value["Payer"] || "N/A"}/>
         <ComGrid label='Procedure Code' val={obj?.service?.value["Procedure"] || "N/A"}/>
         <ComGrid label='Service' val={obj?.service?.value["DESCR"] || "N/A"}/>
-        <ComGrid label='Subtotal' val={obj?.service?.value["Gross Charge"] || "N/A"}/>
         <ComGrid label='Payer Charge' val={obj?.service?.value["Payer Charge"] || "N/A"}/>
         <ComGrid label='Minimum Negotiated Charge' val={obj?.service?.value["Minimum Negotiated Charge"] || "N/A"}/>
         <ComGrid label='Maximum Negotiated Charge' val={obj?.service?.value["Maximum Negotitated Charge"] || "N/A"}/>
         <ComGrid label='Discount Cash' val={obj?.service?.value["Discount Cash"] || "N/A"}/>
+        <ComGrid label='Total' val={obj?.service?.value["Gross Charge"] || "N/A"}/>
 
 
     </>

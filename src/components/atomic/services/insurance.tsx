@@ -131,7 +131,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
           </Grid>
           <Grid item xs={12} sx={{ pt: 3 }}>
             <label>Service</label>
-            <FormControl error={serviceError} >
+            <FormControl error={serviceError} sx={{ width: "100%" }}>
               <Select
                 multiple
                 native

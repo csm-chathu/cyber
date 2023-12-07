@@ -186,7 +186,7 @@ ${singlePdfRow('Discount Cash',params?.service?.value["Discount Cash"] || "N/A")
 <div style="width: 100%;border: 1px solid #CEDCF6;border-top: none;">
 <div style="width:100%;display: flex;align-items: center;">
   <div style="width: 60%;">
-    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 1px 10px;">Subtotal</p>
+    <p style="color:#82889B;font-size:16;font-weight: 400;padding: 1px 10px;">Total</p>
   </div>
   <div style="width: 40%;">
   <p style="color:#020202;font-size:32px;font-weight: 400;text-align: right;padding: 1px 10px">${ params?.service?.value["Gross Charge"] }</p>
