@@ -218,7 +218,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",
-              }}>  Continue </Button>
+              }} disabled={service.length>0 ? false : true} >  Continue </Button>
           </Grid>
         </Grid>
 

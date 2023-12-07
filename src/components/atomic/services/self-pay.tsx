@@ -75,14 +75,14 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
     if (!cat) {
       if(selectedCategory){
       var ans:any = defaultService.filter(function (v: any, i: number) {
-        if ( v.label.toLowerCase().indexOf(term) >= 0  && v.value['Service Category']==selectedCategory ) {
+        if ( v.label.toLowerCase().indexOf(term.toLowerCase()) >= 0  && v.value['Service Category']==selectedCategory ) {
           return true;
         } else false;
       });
       setService(ans);
     }else{
       var ans:any = defaultService.filter(function (v: any, i: number) {
-        if ( v.label.toLowerCase().indexOf(term) >= 0) {
+        if ( v.label.toLowerCase().indexOf(term.toLowerCase()) >= 0) {
           return true;
         } else false;
       });
@@ -211,7 +211,7 @@ export default function ServicesSelf({ obj, setObj, setAct }: any) {
                 fontSize: "16px",
                 textTransform: "none",
                 borderRadius: "8px",
-              }} >  Continue </Button>
+              }} disabled={service.length>0 ? false : true} >  Continue </Button>
           </Grid>
         </Grid>
       </form>

@@ -81,9 +81,12 @@ export default function CustomizedSteppers({
   paymentSelect,
 }: any) {
   const setStepper = (prop: any) => {
+    console.log(prop);
+    
     if (obj.agreed) {
       if (paymentSelect == 1 ||paymentSelect == 2) {
-        // if (prop > 2 && Object.keys(obj.contact).length == 0) {
+        if (prop ==3) return
+                  // if (prop > 2 && Object.keys(obj.contact).length == 0) {
         //   setAct(1);
         //   document.getElementById("contactValidate")?.click();
         // } else if (prop > 2 && act == 1) {
