@@ -19,6 +19,7 @@ export default function Insurace({ obj, setObj, setAct }: any) {
   const theme = useTheme();
   const [service, setService] = useState([]);
   const [serviceCategory, setServiceCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [serviceError, setServiceError] = useState(false);
   const [defaultService, setDefaultService] = useState([]);
 
@@ -56,21 +57,34 @@ export default function Insurace({ obj, setObj, setAct }: any) {
   };
 
   function filterByValue(arrayOfObject: any, term: string, cat: boolean) {
+    
     if (!cat) {
-      var ans = arrayOfObject.filter(function (v: any, i: number) {
-        if (
-          v.label.toLowerCase().indexOf(term) >= 0 ||
-          v.value["Payer"].toLowerCase().indexOf(term) >= 0
-        ) {
-          return true;
-        } else false;
-      });
-      setService(ans);
+      if(selectedCategory){
+        var ans:any = arrayOfObject.filter(function (v: any, i: number) {
+          if (v.label.toLowerCase().indexOf(term) >= 0 && v.value['Payer']==selectedCategory) {
+            return true;
+          } else false;
+        });
+        setService(ans);
+      }else{
+        var ans:any = arrayOfObject.filter(function (v: any, i: number) {
+          if (v.label.toLowerCase().indexOf(term) >= 0) {
+            return true;
+          } else false;
+        });
+        setService(ans);
+      }
     } else {
-      var ans = arrayOfObject.filter((item: any) => {
-        return item.value["Payer"] == term;
-      });
-      setService(ans);
+      if(term){
+        setSelectedCategory(term);
+          var ans:any = defaultService.filter((item: any) => {
+                return item.value['Payer']==term;
+              });
+              setService(ans);
+      }else{
+        setSelectedCategory('');
+        setService(defaultService);
+      }
     }
   }
   const {
@@ -101,10 +115,8 @@ export default function Insurace({ obj, setObj, setAct }: any) {
     setServiceNameSelected(obj?.service?.id?.toString() || "");
   }, [defaultService]);
   return (
-    <>
-      {/* {serviceSelected} */}
-      {/* <Typography textAlign="left" sx={{ fontSize: "24px", fontWeight: 500, mb: 3,mt:3 }} > Select Insurance </Typography> */}
-      <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
+    <>   
+    <form onSubmit={handleSubmit(submitHandler)} id="hook-form-service">
         <Grid container direction="row" sx={{mt:2}}>
           <Grid item xs={12} md={6} sx={{ pt: 1,pr:{ xs: 0,  sm: 1}}}>
             <label>Choose your insurance</label>
