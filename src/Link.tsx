@@ -30,6 +30,7 @@ export const NextLinkComposed = React.forwardRef<HTMLAnchorElement, NextLinkComp
     } = props;
 
     return (
+       /* @ts-ignore */
       <NextLink
         href={to}
         prefetch={prefetch}
@@ -41,6 +42,7 @@ export const NextLinkComposed = React.forwardRef<HTMLAnchorElement, NextLinkComp
         locale={locale}
         legacyBehavior={legacyBehavior}
       >
+          {/* @ts-ignore  */}
         <Anchor ref={ref} {...other} />
       </NextLink>
     );
@@ -87,6 +89,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props,
 
   if (isExternal) {
     if (noLinkStyle) {
+        /* @ts-ignore */
       return <Anchor className={className} href={href} ref={ref} {...other} />;
     }
 
@@ -106,6 +109,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props,
   };
 
   if (noLinkStyle) {
+      /* @ts-ignore */
     return <NextLinkComposed className={className} ref={ref} {...nextjsProps} {...other} />;
   }
 

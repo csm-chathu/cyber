@@ -39,6 +39,7 @@ export default function MyApp(props: MyAppProps) {
 // console.log('thid',THEMEFILE);
 
   return (
+      /* @ts-ignore */
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -46,6 +47,7 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={WCMC}>
         <CssBaseline />
         <Grid container>
+         {/* @ts-ignore  */}
           <Component {...pageProps} />
         </Grid>
       </ThemeProvider>
