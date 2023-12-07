@@ -1,8 +1,6 @@
 "use client";
 import ServicesSelf from "../../atomic/services/self-pay";
 import Insurace from "../../atomic/services/insurance";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
 
 export default function Services({ obj, setObj, setAct }: any) {
   return (

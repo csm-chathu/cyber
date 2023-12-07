@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../atomic/loader";
-import NotFound from "../../atomic/notfound";
+import NotFound from "../notFound";
 
 const textProps: TextFieldProps = {
   id: "outlined-basic",

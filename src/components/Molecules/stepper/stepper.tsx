@@ -114,11 +114,11 @@ export default function CustomizedSteppers({
     };
 
     return (
+      /* @ts-ignore */
       <ColorlibStepIconRoot
         ownerState={{ completed, active }}
         className={className}
-        onClick={() => setStepper(props?.icon)}
-      >
+        onClick={() => setStepper(props?.icon)} >
         {icons[String(props.icon)]}
       </ColorlibStepIconRoot>
     );
@@ -148,6 +148,7 @@ export default function CustomizedSteppers({
         <Stepper
           alternativeLabel
           activeStep={act}
+          /* @ts-ignore */
           connector={<ColorlibConnector />}
         >
           {steps.map((label) => (
